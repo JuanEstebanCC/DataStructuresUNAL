@@ -1,4 +1,4 @@
-package com.example
+package com.example;
 
 public class Fecha {
     /* Atributos para guardar la fecha */
