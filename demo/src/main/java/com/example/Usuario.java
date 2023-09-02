@@ -44,4 +44,36 @@ public class Usuario {
     public Direccion getDireccion() {
         return direccion;
     }
+
+    //Métodos de modificación
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public void setNombre(String n) {
+        this.nombre = n;
+    }
+
+    public void setFechaNacimiento(Fecha f) {
+        this.fecha_nacimiento = f;
+    }
+
+    public void setEmail(String e) {
+        this.email = e;
+    }
+
+    public void setTelefono(long t) {
+        this.telefono = t;
+    }
+
+    public void setDireccion(Direccion d) {
+        this.direccion = d;
+    }
+
+    //Método para toString
+
+    public String toString() {
+        return "ID: " + id + "\nNombre: " + nombre + "\nFecha de nacimiento: " + fecha_nacimiento + "\nEmail: " + email + "\nTelefono: " + telefono + "\nDireccion: " + direccion;
+    }
+    
 }
