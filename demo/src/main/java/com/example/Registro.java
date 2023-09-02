@@ -41,6 +41,7 @@ public class Registro {
             }
             //Aca se esta actualizando el numero de registros
             numRegistros--;
+            registro[numRegistros-1] = null;
             return eliminado;
         }
 
