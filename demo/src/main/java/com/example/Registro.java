@@ -14,10 +14,17 @@ public class Registro {
     }
 
     public Boolean agregar(Usuario u) {
-        if (numRegistros < registro.length) {
+        //Verificando que el usuario no exista
+        for (int i = 0; i < numRegistros; i++) {
+            if (registro[i].getId() == u.getId()) {
+                System.out.println("El usuario ya existe");
+                return false;
+            }
+        }
+
+        if (numRegistros < registro.length){
             //@TODO Agregar el usuario al registro y organizarlo por id
             //Aca solo se esta agregando el usuario al final del arreglo, deberia organizarse
-
             registro[numRegistros] = u;
             numRegistros++;
             return true;
@@ -29,7 +36,7 @@ public class Registro {
 
     public Usuario eliminar(long id){
         int i = 0;
-        //Aca se esta buscando la posicion del usuario a eliminar
+        //Buscando la posicion del usuario a eliminar
         while(i < numRegistros && registro[i].getId() != id){
             i++;
         }
@@ -38,11 +45,11 @@ public class Registro {
             return null;
         }else{
             Usuario eliminado = registro[i];
-            //Aca se esta eliminando el usuario y se esta reorganizando el arreglo
+            //Eliminando el usuario y reorganizando el arreglo
             for(int j = i; j < numRegistros - 1; j++){
                 registro[j] = registro[j+1];
             }
-            //Aca se esta actualizando el numero de registros
+            //Actualizando el numero de registros
             numRegistros--;
             registro[numRegistros-1] = null;
             return eliminado;
