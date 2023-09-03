@@ -4,13 +4,9 @@
 
 ### Integrantes: 
 
-<<<<<<< HEAD
 - Juan Manuel Teherán Machado
 - Juan Esteban Cifuentes Castañeda 
-=======
--
-- Juan Manuel Teherán Machado
->>>>>>> ab5f6e16167dfd9ac105a77365911c1bd3cd33bf
+
 
 ### Instrucciones:
 
