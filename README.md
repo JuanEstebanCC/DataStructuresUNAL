@@ -4,7 +4,7 @@
 ### Integrantes: 
 
 -
--
+- Juan Manuel Teherán Machado
 
 ### Instrucciones:
 
