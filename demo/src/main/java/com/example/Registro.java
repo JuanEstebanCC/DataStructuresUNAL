@@ -1,8 +1,11 @@
 package com.example;
 
+
 public class Registro {
     private Usuario[] registro;
     private int numRegistros;
+
+
 
     //Constructor, inicializamos numRegistros a 0, puesto que aún no hay registros
     public Registro(int n) {
