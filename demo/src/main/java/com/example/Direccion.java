@@ -40,6 +40,9 @@ public class Direccion {
     }
 
     public String toString() {
-        return calle + " " + noCalle + " " + nomenclatura + " " + barrio + " " + ciudad;
+        // Separamos los dos numeros de la calle con un -
+        String noCalleString = Integer.toString(noCalle);
+        noCalleString = noCalleString.substring(0, 2) + "-" + noCalleString.substring(2);
+        return calle + " " +  noCalleString +  " " + nomenclatura + " " + barrio + " " + ciudad;
     }
 }
