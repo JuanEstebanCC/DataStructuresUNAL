@@ -73,7 +73,7 @@ public class Usuario {
     //Método para toString
 
     public String toString() {
-        return "ID: " + id + "\nNombre: " + nombre + "\nFecha de nacimiento: " + fecha_nacimiento + "\nEmail: " + email + "\nTelefono: " + telefono + "\nDireccion: " + direccion;
+        return id + "|" + nombre + "|" + fecha_nacimiento + "|" + email + "|" + telefono + "|" + direccion;
     }
     
 }

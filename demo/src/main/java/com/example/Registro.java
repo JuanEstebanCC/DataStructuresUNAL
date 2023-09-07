@@ -1,5 +1,12 @@
 package com.example;
 
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+
 public class Registro {
     private Usuario[] registro;
     private int numRegistros;
@@ -10,41 +17,169 @@ public class Registro {
         numRegistros = 0;
     }
 
+    //Métodos de acceso
+    public Usuario[] getRegistro() {
+        return registro;
+    }
+    public int numRegistros() {
+        return numRegistros;
+    }
+
     public Boolean agregar(Usuario u) {
         if (numRegistros < registro.length) {
             //@TODO Agregar el usuario al registro y organizarlo por id
             //Aca solo se esta agregando el usuario al final del arreglo, deberia organizarse
-
             registro[numRegistros] = u;
             numRegistros++;
+            
+            // Ordenar el arreglo por id
+            for (int i = 0; i < numRegistros; i++) {
+                for (int j = 0; j < numRegistros - 1; j++) {
+                    if (registro[j].getId() > registro[j + 1].getId()) {
+                        Usuario temp = registro[j + 1];
+                        registro[j + 1] = registro[j];
+                        registro[j] = temp;
+                    }
+                }
+            }
             return true;
         } else {
-            System.out.println("No se pueden agregar más registros");
             return false;
         }
+        
     }
+    
 
-    public Usuario eliminar(long id){
+    public Usuario eliminar(long id) {
         int i = 0;
-        //Aca se esta buscando la posicion del usuario a eliminar
-        while(i < numRegistros && registro[i].getId() != id){
+        //Buscando la posicion del usuario a eliminar
+        while (i < numRegistros && registro[i].getId() != id) {
             i++;
         }
-        if(i == numRegistros){
+        if (i == numRegistros) {
             System.out.println("No se encontró el usuario");
             return null;
-        }else{
+        } else {
             Usuario eliminado = registro[i];
-            //Aca se esta eliminando el usuario y se esta reorganizando el arreglo
-            for(int j = i; j < numRegistros - 1; j++){
-                registro[j] = registro[j+1];
+            //Eliminando el usuario y reorganizando el arreglo
+            for (int j = i; j < numRegistros - 1; j++) {
+                registro[j] = registro[j + 1];
             }
-            //Aca se esta actualizando el numero de registros
+            //Actualizando el numero de registros
             numRegistros--;
-            registro[numRegistros-1] = null;
+            registro[numRegistros - 1] = null;
             return eliminado;
         }
 
 
+    }
+
+    public int buscarPosicion(long id) {
+        if (numRegistros > 0) {
+            int i = 0;
+            while (i < numRegistros && registro[i].getId() != id) {
+                i++;
+            }
+            if (i == numRegistros) {
+                return -1;
+            } else {
+                return i;
+            }
+        } else {
+            return -1;
+        }
+    }
+
+    public Usuario buscarUsuario(long id) {
+        if (numRegistros > 0) {
+            int i = 0;
+            while (i < numRegistros && registro[i].getId() != id) {
+                i++;
+            }
+            if (i == numRegistros) {
+                return null;
+            } else {
+                return registro[i];
+            }
+        } else {
+            return null;
+        }
+    }
+
+    public void toFile(String filename){
+        // Path del archivo txt
+        String filePath = "demo\\src\\main\\java\\com\\example\\" + filename;
+
+        try {
+            // crea un FileWriter para Escribir en el archivo
+            boolean fileExists = Files.exists(Path.of(filePath));
+
+            // Se crea un FileWriter para Escribir en el archivo
+            FileWriter writer = new FileWriter(filePath, true);
+
+            // Si el archivo existe y no esta vacio, añadir una nueva linea antes de escribir
+            if (fileExists && Files.size(Path.of(filePath)) > 0) {
+                writer.write("\n");
+            }
+
+            // Iteramos en el array de la informacion y lo escribimos en el archivo
+            for (int i = 0; i < numRegistros; i++) {
+                writer.write(registro[i].toString() + "\n");
+            }
+
+            // Cerramos el FileWriter
+            writer.close();
+
+            System.out.println("La información ha sido añadida al archivo.");
+        } catch (IOException e) {
+            System.err.println("Un error añadiendo la información al archivo: " + e.getMessage());
+        }
+    }
+
+    public void Import(String filename){
+        // Path del archivo txt
+        String filePath = "demo\\src\\main\\java\\com\\example\\" + filename;
+
+        // Leemos el archivos y vamos agregando los usuarios al registro
+        try {
+            //Abrimos el archivo y creamos un BufferedReader para leerlo
+            File file = new File(filePath);
+            FileReader fr = new FileReader(file);
+            java.io.BufferedReader br = new java.io.BufferedReader(fr);
+
+            //Leemos las lineas y creamos los objetos Usuario
+            String line;
+            while((line = br.readLine()) != null){
+                String[] info = line.split("\\|");
+                long id = Long.parseLong(info[0]);
+                String nombre = info[1];
+
+                String[] fecha = info[2].split("/");
+                int dia = Integer.parseInt(fecha[0]);
+                int mes = Integer.parseInt(fecha[1]);
+                int anio = Integer.parseInt(fecha[2]);
+                Fecha fecha_nacimiento = new Fecha(dia, mes, anio);
+
+                String email = info[3];
+
+                long telefono = Long.parseLong(info[4]);
+
+                String[] direccion = info[5].split(" ");
+                int calle = Integer.parseInt(direccion[0]);
+                String noCalle = direccion[1];
+                String nomenclatura = direccion[2];
+                String barrio = direccion[3];
+                String ciudad = direccion[4];
+                Direccion dir = new Direccion(calle, noCalle, nomenclatura, barrio, ciudad);
+
+                Usuario u = new Usuario(id, nombre, fecha_nacimiento, email, telefono, dir);
+
+                agregar(u);
+            }
+            br.close();
+        } catch (IOException e) {
+            System.err.println("Un error leyendo el archivo: " + e.getMessage());
+        }
+        
     }
 }

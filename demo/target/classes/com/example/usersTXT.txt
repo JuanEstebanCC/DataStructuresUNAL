@@ -1,0 +1,5 @@
+123|Juan Esteban|07/12/2003|juanescifuentes75@gmail.com|3032611174|44 92-40 A Laureles Medellin
+3452|Maria Rodriguez|15/05/1990|maria.rodriguez@gmail.com|5551234567|36 77-15 A Aranjuez Medellin
+113|Carlos Sanchez|20/09/1985|carlos.sanchez@gmail.com|9876543210|58 64-30 B El Poblado Bogota
+043|Ana Pérez|03/11/1998|ana.perez@gmail.com|3335557777|21 45-10 C Envigado Cali
+134|Luis González|12/07/2000|luis.gonzalez@gmail.com|2223334444|70 53-25 D Belén Barranquilla
