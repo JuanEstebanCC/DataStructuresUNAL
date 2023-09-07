@@ -3,5 +3,3 @@ ID: 02|Nombre: Maria Rodriguez|Fecha de nacimiento: 15/05/1990|Email: maria.rodr
 ID: 03|Nombre: Carlos Sanchez|Fecha de nacimiento: 20/09/1985|Email: carlos.sanchez@gmail.com|Telefono: 9876543210|Direccion: 58 64-30 B El Poblado Bogota
 ID: 04|Nombre: Ana Pérez|Fecha de nacimiento: 03/11/1998|Email: ana.perez@gmail.com|Telefono: 3335557777|Direccion: 21 45-10 C Envigado Cali
 ID: 05|Nombre: Luis González|Fecha de nacimiento: 12/07/2000|Email: luis.gonzalez@gmail.com|Telefono: 2223334444|Direccion: 70 53-25 D Belén Barranquilla
-
-

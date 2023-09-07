@@ -8,9 +8,9 @@ import java.util.List;
 
 public class Import {
 
-    public static void main(String[] args) {
+    public Import( String fileName) {
 
-        String fileName = "usersTXT.txt";
+        fileName = "usersTXT.txt";
 
         // Cambiar el filePath con el tuyo
         String filePath = "C:\\Users\\santi\\Desktop\\Estructura de Datos\\Práctica 1\\DataStructuresUNAL\\demo\\src\\main\\java\\com\\example\\" + fileName;
