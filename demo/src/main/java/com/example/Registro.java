@@ -6,11 +6,10 @@ public class Registro {
     private int numRegistros;
 
 
-
     //Constructor, inicializamos numRegistros a 0, puesto que aún no hay registros
     public Registro(int n) {
         registro = new Usuario[n];
-        numRegistros = 0;
+        numRegistros = 1;
     }
 
     public Boolean agregar(Usuario u) {
@@ -22,7 +21,7 @@ public class Registro {
             }
         }
 
-        if (numRegistros < registro.length){
+        if (numRegistros < registro.length) {
             //@TODO Agregar el usuario al registro y organizarlo por id
             //Aca solo se esta agregando el usuario al final del arreglo, deberia organizarse
             registro[numRegistros] = u;
@@ -34,28 +33,60 @@ public class Registro {
         }
     }
 
-    public Usuario eliminar(long id){
+    public Usuario eliminar(long id) {
         int i = 0;
         //Buscando la posicion del usuario a eliminar
-        while(i < numRegistros && registro[i].getId() != id){
+        while (i < numRegistros && registro[i].getId() != id) {
             i++;
         }
-        if(i == numRegistros){
+        if (i == numRegistros) {
             System.out.println("No se encontró el usuario");
             return null;
-        }else{
+        } else {
             Usuario eliminado = registro[i];
             //Eliminando el usuario y reorganizando el arreglo
-            for(int j = i; j < numRegistros - 1; j++){
-                registro[j] = registro[j+1];
+            for (int j = i; j < numRegistros - 1; j++) {
+                registro[j] = registro[j + 1];
             }
             //Actualizando el numero de registros
             numRegistros--;
-            registro[numRegistros-1] = null;
+            registro[numRegistros - 1] = null;
             return eliminado;
         }
 
     }
 
+
+    public int buscarPosicion(long id) {
+        if (numRegistros > 0) {
+            int i = 0;
+            while (i < numRegistros && registro[i].getId() != id) {
+                i++;
+            }
+            if (i == numRegistros) {
+                return -1;
+            } else {
+                return i;
+            }
+        } else {
+            return -1;
+        }
+    }
+
+    public Usuario buscarUsuario(long id) {
+        if (numRegistros > 0) {
+            int i = 0;
+            while (i < numRegistros && registro[i].getId() != id) {
+                i++;
+            }
+            if (i == numRegistros) {
+                return null;
+            } else {
+                return registro[i];
+            }
+        } else {
+            return null;
+        }
+    }
 
 }
