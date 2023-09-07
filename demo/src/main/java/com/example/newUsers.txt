@@ -1,6 +1,0 @@
-43|Ana Pérez|3/11/1998|ana.perez@gmail.com|3335557777|21 45-10 C Envigado Cali
-113|Carlos Sanchez|20/9/1985|carlos.sanchez@gmail.com|9876543210|58 64-30 B El Poblado
-123|Juan Esteban|7/12/2003|juanescifuentes75@gmail.com|3032611174|44 92-40 A Laureles Medellin
-134|Luis González|12/7/2000|luis.gonzalez@gmail.com|2223334444|70 53-25 D Belén Barranquilla
-3452|Maria Rodriguez|15/5/1990|maria.rodriguez@gmail.com|5551234567|36 77-15 A Aranjuez Medellin
-7809|Juan Teheran|12/12/1999|kkmiel32@gmail.com|123456789|123 65-78 C Poblado Medellin

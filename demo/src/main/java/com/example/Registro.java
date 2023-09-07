@@ -110,6 +110,14 @@ public class Registro {
         // Path del archivo txt
         String filePath = "demo\\src\\main\\java\\com\\example\\" + filename;
 
+        // Delete the existing file
+        boolean fileDeleted = new File(filePath).delete();
+        if (!fileDeleted) {
+            System.err.println("Error deleting the file");
+            return;
+        }
+
+
         try {
             // crea un FileWriter para Escribir en el archivo
             boolean fileExists = Files.exists(Path.of(filePath));
