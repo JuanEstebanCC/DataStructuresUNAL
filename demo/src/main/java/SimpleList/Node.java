@@ -10,6 +10,7 @@ public class Node {
     }
     public Node(Object data) {
         this.data = data;
+        this.next = null;
     }
 
     //Getters y Setters
