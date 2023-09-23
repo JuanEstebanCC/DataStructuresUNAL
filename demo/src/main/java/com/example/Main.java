@@ -12,24 +12,24 @@ public class Main {
         }
 
         // Crear un usuario
-        Direccion direccion = new Direccion(123, "65-78", "C", "Poblado", "Medellin");
-        Fecha fecha = new Fecha(12, 12, 1999);
-        Usuario usuario = new Usuario(7809, "Juan Teheran", fecha,"kkmiel32@gmail.com", 123456789, direccion);
+        Direccion direccion = new Direccion(1145, "75-48", "A", "Robledo", "Popayán");
+        Fecha fecha = new Fecha(21, 12, 2000);
+        Usuario usuario = new Usuario(2309, "Juan Esteban", fecha,"secretomio@gmail.com", 837492049, direccion);
 
         // Agregar el usuario al registro
         registro.agregar(usuario);
 
         // Busquemos un usuario existente por id
-        Usuario buscado = registro.buscarUsuario(134);
+        Usuario buscado = registro.buscarUsuario(4444);
         System.out.println(buscado.toString());
-        System.out.println("Posicion: " + registro.buscarPosicion(134));
+        System.out.println("Posicion: " + registro.buscarPosicion(4444));
 
         // Busquemos un usuario no existente por id
         Usuario buscado2 = registro.buscarUsuario(11);
         System.out.println(buscado2);
 
         // Guardar el registro en el archivo
-        registro.toFile("newUsers.txt");
+        registro.toFile("usersTXT.txt");
 
     }
 }
