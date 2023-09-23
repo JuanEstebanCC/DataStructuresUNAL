@@ -2,15 +2,15 @@ package com.example;
 
 public class Direccion {
     /* Atributos para guardar la direccion */
-    private String calle;
-    private int noCalle;
+    private int calle;
+    private String noCalle;
     private String nomenclatura;
     private String barrio;
     private String ciudad;
 
     /* Métodos de la clase */
     //Constructor
-    public Direccion(String c, int n, String nom, String b, String ciu) {
+    public Direccion(int c, String n, String nom, String b, String ciu) {
         calle = c;
         noCalle = n;
         nomenclatura = nom;
@@ -19,11 +19,11 @@ public class Direccion {
     }
 
     //Métodos de acceso
-    public String getCalle() {
+    public int getCalle() {
         return calle;
     }
 
-    public int getNumero() {
+    public String getNumero() {
         return noCalle;
     }
 

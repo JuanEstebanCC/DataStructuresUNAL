@@ -1,43 +1,54 @@
 package com.example;
 
-import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
-import java.nio.file.Files;
-import java.nio.file.Path;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
 
 public class Registro {
     private Usuario[] registro;
     private int numRegistros;
 
-
     //Constructor, inicializamos numRegistros a 0, puesto que aún no hay registros
     public Registro(int n) {
         registro = new Usuario[n];
-        numRegistros = 1;
+        numRegistros = 0;
+    }
+
+    //Métodos de acceso
+    public Usuario[] getRegistro() {
+        return registro;
+    }
+    public int numRegistros() {
+        return numRegistros;
     }
 
     public Boolean agregar(Usuario u) {
-        //Verificando que el usuario no exista
-        for (int i = 0; i < numRegistros; i++) {
-            if (registro[i].getId() == u.getId()) {
-                System.out.println("El usuario ya existe");
-                return false;
-            }
-        }
-
         if (numRegistros < registro.length) {
             //@TODO Agregar el usuario al registro y organizarlo por id
             //Aca solo se esta agregando el usuario al final del arreglo, deberia organizarse
             registro[numRegistros] = u;
             numRegistros++;
+            
+            // Ordenar el arreglo por id
+            for (int i = 0; i < numRegistros; i++) {
+                for (int j = 0; j < numRegistros - 1; j++) {
+                    if (registro[j].getId() > registro[j + 1].getId()) {
+                        Usuario temp = registro[j + 1];
+                        registro[j + 1] = registro[j];
+                        registro[j] = temp;
+                    }
+                }
+            }
             return true;
         } else {
-            System.out.println("No se pueden agregar más registros");
             return false;
         }
+        
     }
+    
 
     public Usuario eliminar(long id) {
         int i = 0;
@@ -60,8 +71,8 @@ public class Registro {
             return eliminado;
         }
 
-    }
 
+    }
 
     public int buscarPosicion(long id) {
         if (numRegistros > 0) {
@@ -95,20 +106,9 @@ public class Registro {
         }
     }
 
-    // Metodo para mandar un array con los datos y escribirlo en el archivo txt
-    public void toFile (String filePath) {
-
-        String[] infoArray = {
-                "ID: 03",
-                "Nombre: Gloria Yorladis",
-                "Fecha de nacimiento: 17/02/2005",
-                "Email: ogle75@gmail.com",
-                "Telefono: 3232612175",
-                "Direccion: 42 96-40 A Picacho Medellin"
-        };
-
+    public void toFile(String filename){
         // Path del archivo txt
-        filePath = "C:\\Users\\santi\\Desktop\\Estructura de Datos\\Práctica 1\\DataStructuresUNAL\\demo\\src\\main\\java\\com\\example\\usersTXT.txt";
+        String filePath = "demo\\src\\main\\java\\com\\example\\" + filename;
 
         try {
             // crea un FileWriter para Escribir en el archivo
@@ -117,14 +117,14 @@ public class Registro {
             // Se crea un FileWriter para Escribir en el archivo
             FileWriter writer = new FileWriter(filePath, true);
 
-            // Si el archivo existe y no esta vacio, añadir una buena linea antes de escribir
+            // Si el archivo existe y no esta vacio, añadir una nueva linea antes de escribir
             if (fileExists && Files.size(Path.of(filePath)) > 0) {
                 writer.write("\n");
             }
 
             // Iteramos en el array de la informacion y lo escribimos en el archivo
-            for (String info : infoArray) {
-                writer.write(info + "|");
+            for (int i = 0; i < numRegistros; i++) {
+                writer.write(registro[i].toString() + "\n");
             }
 
             // Cerramos el FileWriter
@@ -136,9 +136,50 @@ public class Registro {
         }
     }
 
-    // Metodo para leer los usuarios en el archivo txt
-    public void Importn (String fileName){
-          Import importado = new Import(fileName);
-    }
+    public void Import(String filename){
+        // Path del archivo txt
+        String filePath = "demo\\src\\main\\java\\com\\example\\" + filename;
 
+        // Leemos el archivos y vamos agregando los usuarios al registro
+        try {
+            //Abrimos el archivo y creamos un BufferedReader para leerlo
+            File file = new File(filePath);
+            FileReader fr = new FileReader(file);
+            java.io.BufferedReader br = new java.io.BufferedReader(fr);
+
+            //Leemos las lineas y creamos los objetos Usuario
+            String line;
+            while((line = br.readLine()) != null){
+                String[] info = line.split("\\|");
+                long id = Long.parseLong(info[0]);
+                String nombre = info[1];
+
+                String[] fecha = info[2].split("/");
+                int dia = Integer.parseInt(fecha[0]);
+                int mes = Integer.parseInt(fecha[1]);
+                int anio = Integer.parseInt(fecha[2]);
+                Fecha fecha_nacimiento = new Fecha(dia, mes, anio);
+
+                String email = info[3];
+
+                long telefono = Long.parseLong(info[4]);
+
+                String[] direccion = info[5].split(" ");
+                int calle = Integer.parseInt(direccion[0]);
+                String noCalle = direccion[1];
+                String nomenclatura = direccion[2];
+                String barrio = direccion[3];
+                String ciudad = direccion[4];
+                Direccion dir = new Direccion(calle, noCalle, nomenclatura, barrio, ciudad);
+
+                Usuario u = new Usuario(id, nombre, fecha_nacimiento, email, telefono, dir);
+
+                agregar(u);
+            }
+            br.close();
+        } catch (IOException e) {
+            System.err.println("Un error leyendo el archivo: " + e.getMessage());
+        }
+        
+    }
 }
