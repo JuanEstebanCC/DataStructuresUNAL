@@ -1,4 +1,4 @@
-package StackArray;
+package Stack;
 
 public class StackArray {
     private Object[] array;
