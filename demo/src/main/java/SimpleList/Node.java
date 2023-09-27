@@ -1,8 +1,8 @@
 package SimpleList;
 
 public class Node {
-    public Object data;
-    public Node next;
+    private Object data;
+    private Node next;
 
     //Constructoress, uno para settearlo por defecto y otro para settearlo con un valor
     public Node() {

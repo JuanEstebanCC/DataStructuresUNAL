@@ -1,9 +1,9 @@
 package SimpleList;
 
 public class List {
-    Node head;
-    Node tail;
-    int size;
+    private Node head;
+    private Node tail;
+    private int size;
 
     //Constructors
     public List() {
