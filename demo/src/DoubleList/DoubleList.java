@@ -54,4 +54,56 @@ public class DoubleList{
             size++;
         }
     }
+
+    public Object removeFirst(){
+        if (isEmpty()) {
+            return null;
+        } else {
+            Object temp = head.getData();
+            temp.setNext(null);
+            head = head.getNext();
+            size--;
+            if (isEmpty()) {
+                tail = null;
+            } else {
+                head.setPrev(null);
+            }
+            return temp;
+        }
+    }
+
+    public Object removeLast() {
+        if (isEmpty()) {
+            return null;
+        } else {
+            Object temp = tail.getData();
+            temp.setPrev(null);
+            tail = tail.getPrev();
+            size--;
+            if (isEmpty()) {
+                head = null;
+            } else {
+                tail.setNext(null);
+            }
+            return temp;
+        }
+    }
+
+    public Object remove(DoubleNode n) {
+        if (n == this.First()) {
+            return removeFirst();
+        } else if (n == this.Last()) {
+            return removeLast();
+        } else {
+            Object temp = n.getData();
+            n.getPrev().setNext(n.getNext());
+            n.getNext().setPrev(n.getPrev());
+            n.setNext(null);
+            n.setPrev(null);
+            size--;
+            return temp;
+        }
+    }
+
+
 }
