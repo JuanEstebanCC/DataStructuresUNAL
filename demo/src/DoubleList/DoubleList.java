@@ -105,5 +105,30 @@ public class DoubleList{
         }
     }
 
+    public void addBefore(DoubleNode n, Object e) {
+        if (n == this.First()) {
+            this.addFirst(e);
+        } else {
+            DoubleNode node = new DoubleNode(e);
+            node.setPrev(n.getPrev());
+            node.setNext(n);
+            n.getPrev().setNext(node);
+            n.setPrev(node);
+            size++;
+        }
+    }
+
+    public void addAfter(DoubleNode n, Object e) {
+        if (n == this.Last()) {
+            this.addLast(e);
+        } else {
+            DoubleNode node = new DoubleNode(e);
+            node.setPrev(n);
+            node.setNext(n.getNext());
+            n.getNext().setPrev(node);
+            n.setNext(node);
+            size++;
+        }
+    }
 
 }
