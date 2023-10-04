@@ -117,7 +117,6 @@ public class Registro {
             return;
         }
 
-
         try {
             // crea un FileWriter para Escribir en el archivo
             boolean fileExists = Files.exists(Path.of(filePath));
