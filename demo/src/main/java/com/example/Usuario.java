@@ -85,18 +85,30 @@ public class Usuario {
         Scanner sc = new Scanner(System.in);
         System.out.println("Ingrese el ID: ");
         id = sc.nextLong();
+        sc.nextLine();
 
         System.out.println("Ingrese el nombre: ");
-        nombre = sc.nextLine(); // ACA NO SE LEE EL NOMBRE, CORREGIR
+        nombre = sc.nextLine(); 
 
         System.out.println("Ingrese la fecha de nacimiento -----------------");
-        fecha_nacimiento.leerFecha();
+        System.out.println("Ingrese el día: ");
+        int dia = sc.nextInt();
+
+        System.out.println("Ingrese el mes: ");
+        int mes = sc.nextInt();
+
+        System.out.println("Ingrese el año: ");
+        int anio = sc.nextInt();
+        sc.nextLine();
+
+        fecha_nacimiento = new Fecha(dia, mes, anio);
 
         System.out.println("Ingrese el email: ");
-        email = sc.nextLine(); // ACA HAY UN ERROR EXTRAÑO, QUE LO LANZA EL PROPIO SCANNER, CORREGIR
+        email = sc.nextLine();
 
         System.out.println("Ingrese el telefono: ");
         telefono = sc.nextLong();
+        sc.nextLine();
 
         System.out.println("Ingrese la direccion ----------------- ");
         direccion.leerDireccion();

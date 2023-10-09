@@ -48,21 +48,6 @@ public class Fecha {
         anio = a;
     }
 
-    // Metodo para ingresar fecha por teclado
-    public void leerFecha() {
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Ingrese el día: ");
-        dia = sc.nextInt();
-
-        System.out.println("Ingrese el mes: ");
-        mes = sc.nextInt();
-
-        System.out.println("Ingrese el año: ");
-        anio = sc.nextInt();
-
-        sc.close();
-    }
-    
     //Método para toString
     public String toString() {
         return dia + "/" + mes + "/" + anio;

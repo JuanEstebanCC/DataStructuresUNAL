@@ -54,9 +54,10 @@ public class Direccion {
         Scanner sc = new Scanner(System.in);
         System.out.println("Ingrese la calle: ");
         calle = sc.nextInt();
+        sc.nextLine();
 
         System.out.println("Ingrese el número de la calle: ");
-        noCalle = sc.nextLine(); // ACA NO SE LEE EL NUMERO DE LA CALLE, CORREGIR
+        noCalle = sc.nextLine();
         
         System.out.println("Ingrese la nomenclatura: ");
         nomenclatura = sc.nextLine();
