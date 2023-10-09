@@ -3,15 +3,16 @@ package com.example;
 public class Main {
     public static void main(String[] args) {
 
-        //Testing the Usuario class
+        // Creando un objeto de tipo Registro
+        Registro registro = new Registro(20);
 
-        //Creating a new user
-        Usuario user1 = new Usuario();
+        // Importamos del archivo usersTXT.txt
 
-        //Setting the user's attributes
-        user1.leerUsuario();
+        registro.Import();
 
-        //Printing the user's attributes
-        System.out.println(user1.toString());
+        // Imprimamos los usuarios cargados
+        for (int i = 0; i < registro.numRegistros(); i++) {
+            System.out.println(registro.getRegistro()[i].toString());
+        }
     }
 }
