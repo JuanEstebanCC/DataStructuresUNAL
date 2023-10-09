@@ -1,4 +1,5 @@
 package com.example;
+import java.util.Scanner;
 
 public class Fecha {
     /* Atributos para guardar la fecha */
@@ -8,6 +9,12 @@ public class Fecha {
 
     /*Métodos de la clase */
     //Constructor
+    public Fecha() {
+        dia = 0;
+        mes = 0;
+        anio = 0;
+    }
+
     public Fecha(int d, int m, int a) {
         dia = d;
         mes = m;
@@ -41,6 +48,21 @@ public class Fecha {
         anio = a;
     }
 
+    // Metodo para ingresar fecha por teclado
+    public void leerFecha() {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Ingrese el día: ");
+        dia = sc.nextInt();
+
+        System.out.println("Ingrese el mes: ");
+        mes = sc.nextInt();
+
+        System.out.println("Ingrese el año: ");
+        anio = sc.nextInt();
+
+        sc.close();
+    }
+    
     //Método para toString
     public String toString() {
         return dia + "/" + mes + "/" + anio;
