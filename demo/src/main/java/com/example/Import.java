@@ -54,9 +54,9 @@ public class Import {
                     // Direccion
                     String addressField = parts[5];
                     String[] addressParts = addressField.split(" ");
-                    String calle = addressParts[1];
+                    int calle = Integer.parseInt(addressParts[1]);
                     String noCalle = addressParts[2].replace("-", "");
-                    int noCalleValue = Integer.parseInt(noCalle);
+                    String noCalleValue = noCalle;
                     String nomenclatura = addressParts[3];
                     String barrio = addressParts[4];
                     String ciudad = addressParts[5];
