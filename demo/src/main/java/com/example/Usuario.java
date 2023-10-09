@@ -1,4 +1,5 @@
 package com.example;
+import java.util.Scanner;
 
 public class Usuario {
     /* Atributos para guardar los datos del usuario */
@@ -11,6 +12,15 @@ public class Usuario {
 
     /* Métodos de la clase */
     //Constructor
+    public Usuario() {
+        id = 0;
+        nombre = "";
+        fecha_nacimiento = new Fecha();
+        email = "";
+        telefono = 0;
+        direccion = new Direccion();
+    }
+
     public Usuario(long id, String n, Fecha f, String e, long t, Direccion d) {
         this.id = id;
         this.nombre = n;
@@ -68,6 +78,30 @@ public class Usuario {
 
     public void setDireccion(Direccion d) {
         this.direccion = d;
+    }
+    //Método para ingresar datos por consola
+
+    public void leerUsuario(){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Ingrese el ID: ");
+        id = sc.nextLong();
+
+        System.out.println("Ingrese el nombre: ");
+        nombre = sc.nextLine(); // ACA NO SE LEE EL NOMBRE, CORREGIR
+
+        System.out.println("Ingrese la fecha de nacimiento -----------------");
+        fecha_nacimiento.leerFecha();
+
+        System.out.println("Ingrese el email: ");
+        email = sc.nextLine(); // ACA HAY UN ERROR EXTRAÑO, QUE LO LANZA EL PROPIO SCANNER, CORREGIR
+
+        System.out.println("Ingrese el telefono: ");
+        telefono = sc.nextLong();
+
+        System.out.println("Ingrese la direccion ----------------- ");
+        direccion.leerDireccion();
+
+        sc.close();
     }
 
     //Método para toString

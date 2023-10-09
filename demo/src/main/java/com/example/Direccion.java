@@ -1,4 +1,5 @@
 package com.example;
+import java.util.Scanner;
 
 public class Direccion {
     /* Atributos para guardar la direccion */
@@ -10,6 +11,14 @@ public class Direccion {
 
     /* Métodos de la clase */
     //Constructor
+    public Direccion() {
+        calle = 0;
+        noCalle = "";
+        nomenclatura = "";
+        barrio = "";
+        ciudad = "";
+    }
+
     public Direccion(int c, String n, String nom, String b, String ciu) {
         calle = c;
         noCalle = n;
@@ -39,10 +48,32 @@ public class Direccion {
         return ciudad;
     }
 
+    //Métodos de lectura de datos por consola
+
+    public void leerDireccion() {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Ingrese la calle: ");
+        calle = sc.nextInt();
+
+        System.out.println("Ingrese el número de la calle: ");
+        noCalle = sc.nextLine(); // ACA NO SE LEE EL NUMERO DE LA CALLE, CORREGIR
+        
+        System.out.println("Ingrese la nomenclatura: ");
+        nomenclatura = sc.nextLine();
+
+        System.out.println("Ingrese el barrio: ");
+        barrio = sc.nextLine();
+
+        System.out.println("Ingrese la ciudad: ");
+        ciudad = sc.nextLine();
+
+        sc.close();
+    }
+
+    //Método para guardar como String
+
     public String toString() {
-        // Separamos los dos numeros de la calle con un -
-        String noCalleString = Integer.toString(noCalle);
-        noCalleString = noCalleString.substring(0, 2) + "-" + noCalleString.substring(2);
-        return calle + " " +  noCalleString +  " " + nomenclatura + " " + barrio + " " + ciudad;
+        // Separamos los dos numeros de la calle con un 
+        return calle + " " +  noCalle +  " " + nomenclatura + " " + barrio + " " + ciudad;
     }
 }
