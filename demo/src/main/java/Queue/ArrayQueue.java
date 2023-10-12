@@ -26,7 +26,7 @@ public class ArrayQueue {
     public boolean isEmpty(){ return getSize() == 0; }
 
     public void enqueue(Object e){
-        if (getSize() < data.length()){
+        if (getSize() < data.length){
             rear = (rear + 1)%data.length;
             data[rear] = e;
         }
@@ -36,9 +36,9 @@ public class ArrayQueue {
        if (isEmpty()) {
            return null;
        } else{
-           Object temp = dat[first];
+           Object temp = data[first];
            data[first] = null;
-           first = (first + 1)%data.length();
+           first = (first + 1)%data.length;
            return temp;
         }
     }

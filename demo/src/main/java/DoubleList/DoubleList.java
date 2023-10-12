@@ -59,16 +59,16 @@ public class DoubleList{
         if (isEmpty()) {
             return null;
         } else {
-            Object temp = head.getData();
-            temp.setNext(null);
+            DoubleNode temp = head;
             head = head.getNext();
+            temp.setNext(null);
             size--;
             if (isEmpty()) {
                 tail = null;
             } else {
                 head.setPrev(null);
             }
-            return temp;
+            return temp.getData();
         }
     }
 
@@ -76,16 +76,16 @@ public class DoubleList{
         if (isEmpty()) {
             return null;
         } else {
-            Object temp = tail.getData();
-            temp.setPrev(null);
+            DoubleNode temp = tail;
             tail = tail.getPrev();
+            temp.setPrev(null);
             size--;
             if (isEmpty()) {
                 head = null;
             } else {
                 tail.setNext(null);
             }
-            return temp;
+            return temp.getData();
         }
     }
 

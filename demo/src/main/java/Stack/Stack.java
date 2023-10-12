@@ -4,12 +4,10 @@ import SimpleList.List;
 
 public class Stack {
     private List list;
-    private int size;
 
     //Constructors
     public Stack() {
         this.list = new List();
-        this.size = list.getSize();
     }
 
     //Methods

@@ -14,7 +14,7 @@ public class Queue {
     // Methods
 
     public int getSize(){
-        return data.size();
+        return data.getSize();
     }
 
     public boolean isEmpty(){

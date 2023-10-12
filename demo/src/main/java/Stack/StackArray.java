@@ -33,7 +33,6 @@ public class StackArray {
         } else {
             array[top + 1] = e;
             top++;
-            size++;
         }
     }
 
@@ -44,7 +43,6 @@ public class StackArray {
             Object temp = array[top];
             array[top] = null;
             top--;
-            size--;
             return temp;
         }
     }
