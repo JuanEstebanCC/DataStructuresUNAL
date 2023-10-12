@@ -1,5 +1,4 @@
 package com.example;
-import java.util.Scanner;
 
 public class Fecha {
     /* Atributos para guardar la fecha */
