@@ -1,9 +1,0 @@
-333|Carlos Vargas|2/5/1990|carlos.vargas@gmail.com|9999999999|77 21-44 D El Poblado
-555|Elena García|8/4/1995|elena.garcia@gmail.com|9876543210|22 35-18 D Envigado Cali
-666|Sofía Martínez|5/9/1997|sofia.martinez@gmail.com|7778889999|59 74-10 D Belén Barranquilla
-777|Laura López|21/6/2002|laura.lopez@gmail.com|3332221111|68 42-33 A Laureles Medellín
-888|Pedro Ramírez|14/10/1988|pedro.ramirez@gmail.com|5556667777|45 70-22 B El Poblado
-999|Luisa Fernández|10/12/2001|luisa.fernandez@gmail.com|5555555555|14 68-21 C Envigado Cali
-2222|Marcela Sánchez|17/7/1998|marcela.sanchez@gmail.com|987654321|98 45-33 B Poblado Medellín
-2309|Juan Esteban|21/12/2000|secretomio@gmail.com|837492049|1145 75-48 A Robledo Popayán
-4444|Andrés Castro|30/3/1984|andres.castro@gmail.com|1234567890|33 58-12 A Aranjuez Medellín
