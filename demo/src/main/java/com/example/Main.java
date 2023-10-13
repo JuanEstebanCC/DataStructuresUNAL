@@ -1,11 +1,14 @@
 package com.example;
 
-import Queue.Queue;
-
 public class Main {
     public static void main(String[] args) {
 
-    Queue cola = new Queue();
+    // Probando crear un usuario desde consola
+    Usuario usuario = new Usuario();
+
+    usuario.leerUsuario();
+
+    System.out.println(usuario.toString());
 
     }
 }

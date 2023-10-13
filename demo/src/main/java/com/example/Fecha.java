@@ -49,7 +49,7 @@ public class Fecha {
 
     //Método para toString
     public String toString() {
-        return dia + "/" + mes + "/" + anio;
+        return dia + " " + mes + " " + anio;
     }
     
 

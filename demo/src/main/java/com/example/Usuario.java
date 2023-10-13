@@ -6,6 +6,7 @@ public class Usuario {
     private long id;
     private String nombre;
     private Fecha fecha_nacimiento;
+    private String ciudad_nacimiento;
     private String email;
     private long telefono;
     private Direccion direccion;
@@ -16,15 +17,17 @@ public class Usuario {
         id = 0;
         nombre = "";
         fecha_nacimiento = new Fecha();
+        ciudad_nacimiento = "";
         email = "";
         telefono = 0;
         direccion = new Direccion();
     }
 
-    public Usuario(long id, String n, Fecha f, String e, long t, Direccion d) {
+    public Usuario(long id, String n, Fecha f, String lugar_nacimiento, String e, long t, Direccion d) {
         this.id = id;
         this.nombre = n;
         this.fecha_nacimiento = f;
+        this.ciudad_nacimiento = lugar_nacimiento;
         this.email = e;
         this.telefono = t;
         this.direccion = d;
@@ -41,6 +44,10 @@ public class Usuario {
 
     public Fecha getFechaNacimiento() {
         return fecha_nacimiento;
+    }
+
+    public String getCiudadNacimiento() {
+        return ciudad_nacimiento;
     }
     
     public String getEmail() {
@@ -103,6 +110,9 @@ public class Usuario {
 
         fecha_nacimiento = new Fecha(dia, mes, anio);
 
+        System.out.println("Ingrese la ciudad de nacimiento: ");
+        ciudad_nacimiento = sc.nextLine();
+
         System.out.println("Ingrese el email: ");
         email = sc.nextLine();
 
@@ -119,7 +129,7 @@ public class Usuario {
     //Método para toString
 
     public String toString() {
-        return id + "|" + nombre + "|" + fecha_nacimiento + "|" + email + "|" + telefono + "|" + direccion;
+        return nombre + " " + id + " " + fecha_nacimiento.toString() + " " + ciudad_nacimiento + " " + telefono + " " + direccion.toString();
     }
     
 }

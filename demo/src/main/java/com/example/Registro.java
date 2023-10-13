@@ -157,29 +157,30 @@ public class Registro {
             //Leemos las lineas y creamos los objetos Usuario
             String line;
             while((line = br.readLine()) != null){
-                String[] info = line.split("\\|");
-                long id = Long.parseLong(info[0]);
-                String nombre = info[1];
+                String[] info = line.split("\\ "); //Dividi
+                String nombre = info[0];
+                long id = Long.parseLong(info[1]);
 
-                String[] fecha = info[2].split("/");
-                int dia = Integer.parseInt(fecha[0]);
-                int mes = Integer.parseInt(fecha[1]);
-                int anio = Integer.parseInt(fecha[2]);
-                Fecha fecha_nacimiento = new Fecha(dia, mes, anio);
+                int dia = Integer.parseInt(info[2]);
+                int mes = Integer.parseInt(info[3]);
+                int anio = Integer.parseInt(info[4]);
+                Fecha fecha_nacimiento = new Fecha(dia, mes, anio); //Se crea un objeto Fecha con los datos leidos
 
-                String email = info[3];
+                String ciudadNacimiento = info[5];
+                long telefono = Long.parseLong(info[6]);
+                String email = info[7];
 
-                long telefono = Long.parseLong(info[4]);
-
-                String[] direccion = info[5].split(" ");
-                int calle = Integer.parseInt(direccion[0]);
-                String noCalle = direccion[1];
-                String nomenclatura = direccion[2];
-                String barrio = direccion[3];
-                String ciudad = direccion[4];
-                Direccion dir = new Direccion(calle, noCalle, nomenclatura, barrio, ciudad);
-
-                Usuario u = new Usuario(id, nombre, fecha_nacimiento, email, telefono, dir);
+                String calle = info[8];
+                String noCalle = info[9];
+                String barrio = info[10];
+                String ciudad = info[11];
+                String conjunto = info[12];
+                String noConjunto = info[13];
+                
+                //Se guarda la direccion en un objeto Direccion
+                Direccion dir = new Direccion(calle, noCalle, barrio, ciudad, conjunto, noConjunto);
+                
+                Usuario u = new Usuario(id, nombre, fecha_nacimiento, ciudadNacimiento, email, telefono, dir);
 
                 agregar(u);
             }
