@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 public class Usuario {
     /* Atributos para guardar los datos del usuario */
-    private long id;
+    private int id;
     private String nombre;
     private Fecha fecha_nacimiento;
     private String ciudad_nacimiento;
@@ -23,7 +23,7 @@ public class Usuario {
         direccion = new Direccion();
     }
 
-    public Usuario(long id, String n, Fecha f, String lugar_nacimiento, String e, long t, Direccion d) {
+    public Usuario(int id, String n, Fecha f, String lugar_nacimiento, String e, long t, Direccion d) {
         this.id = id;
         this.nombre = n;
         this.fecha_nacimiento = f;
@@ -34,7 +34,7 @@ public class Usuario {
     }
 
     //Métodos de acceso
-    public long getId() {
+    public int getId() {
         return id;
     }
 
@@ -63,7 +63,7 @@ public class Usuario {
     }
 
     //Métodos de modificación
-    public void setId(long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -91,7 +91,7 @@ public class Usuario {
     public void leerUsuario(){
         Scanner sc = new Scanner(System.in);
         System.out.println("Ingrese el ID: ");
-        id = sc.nextLong();
+        id = sc.nextInt();
         sc.nextLine();
 
         System.out.println("Ingrese el nombre: ");
@@ -129,7 +129,7 @@ public class Usuario {
     //Método para toString
 
     public String toString() {
-        return nombre + " " + id + " " + fecha_nacimiento.toString() + " " + ciudad_nacimiento + " " + telefono + " " + direccion.toString();
+        return nombre + " " + Integer.toString(id) + " " + fecha_nacimiento.toString() + " " + ciudad_nacimiento + " " + telefono + " " + direccion.toString();
     }
     
 }

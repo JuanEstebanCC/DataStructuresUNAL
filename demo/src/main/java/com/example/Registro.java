@@ -159,7 +159,7 @@ public class Registro {
             while((line = br.readLine()) != null){
                 String[] info = line.split("\\ "); //Dividi
                 String nombre = info[0];
-                long id = Long.parseLong(info[1]);
+                int id = Integer.parseInt(info[1]);
 
                 int dia = Integer.parseInt(info[2]);
                 int mes = Integer.parseInt(info[3]);

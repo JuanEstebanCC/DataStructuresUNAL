@@ -1,19 +1,20 @@
 package com.example;
+import java.util.Scanner;
 
 public class Credenciales {
-    private String usuario;
+    private int id;
     private String contrasena;
     private String tipo;
 
-    public Credenciales(String usuario, String contrasena, String tipo) {
-        this.usuario = usuario;
+    public Credenciales(int id, String contrasena, String tipo) {
+        this.id = id;
         this.contrasena = contrasena;
         this.tipo = tipo;
     }
 
     // Getters
-    public String getUsuario() {
-        return usuario;
+    public int getid() {
+        return id;
     }
 
     public String getContrasena() {
@@ -25,8 +26,8 @@ public class Credenciales {
     }
 
     // Setters
-    public void setUsuario(String usuario) {
-        this.usuario = usuario;
+    public void setUsuario(int id) {
+        this.id = id;
     }
 
     public void setContrasena(String contrasena) {
@@ -35,5 +36,18 @@ public class Credenciales {
     
     public void setTipo(String tipo) {
         this.tipo = tipo;
+    }
+
+    // Métodos de lectura de datos por consola
+    public void leerDatos() {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Ingrese el id del usuario");
+        id = sc.nextInt();
+        sc.nextLine();
+        System.out.println("Ingrese la contraseña del usuario");
+        contrasena = sc.nextLine();
+        System.out.println("Ingrese el tipo de usuario");
+        tipo = sc.nextLine();
+        sc.close();
     }
 }

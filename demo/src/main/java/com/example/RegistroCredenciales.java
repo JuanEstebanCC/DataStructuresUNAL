@@ -87,7 +87,7 @@ public class RegistroCredenciales {
         }
     }
 
-    public Credenciales buscarUsuario(long id) {
+    public Credenciales buscarUsuario(int id) {
         if (numCredenciales > 0) {
             int i = 0;
             while (i < numCredenciales && registro[i].getid() != id) {
