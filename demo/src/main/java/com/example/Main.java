@@ -3,12 +3,15 @@ package com.example;
 public class Main {
     public static void main(String[] args) {
 
-    // Probando crear un usuario desde consola
-    Usuario usuario = new Usuario();
+    // Probando carga de usuarios
 
-    usuario.leerUsuario();
+    Registro registro = new Registro(10);
 
-    System.out.println(usuario.toString());
+    registro.Import();
+
+    for (int i = 0; i < registro.numRegistros(); i++) {
+        System.out.println(registro.getRegistro()[i].toString());
+    }
 
     }
 }

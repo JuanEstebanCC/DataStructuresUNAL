@@ -108,7 +108,7 @@ public class Registro {
 
     public void toFile(){
         // Path del archivo txt
-        String filePath = "demo/src/main/java/com/example/usersTXT.txt";
+        String filePath = "demo/src/main/java/com/example/Datos/InfoUsuarios/Empleados.txt";
 
         // Delete the existing file
         boolean fileDeleted = new File(filePath).delete();
@@ -145,7 +145,7 @@ public class Registro {
 
     public void Import(){
         // Path del archivo txt
-        String filePath = "demo/src/main/java/com/example/usersTXT.txt";
+        String filePath = "demo/src/main/java/com/example/Datos/InfoUsuarios/Empleados.txt";
 
         // Leemos el archivos y vamos agregando los usuarios al registro
         try {
