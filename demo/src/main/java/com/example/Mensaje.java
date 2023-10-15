@@ -73,18 +73,21 @@ public class Mensaje {
     }
 
     public void resumenMensaje() {
-        System.out.println();
         System.out.println("Fecha: " + fecha);
         System.out.println("Titulo: " + titulo);
         System.out.println("Emisor: " + idUsuarioEmisor);
     }
 
     public void mostrarMensaje() {
+        System.out.println("Titulo: " + titulo);
         System.out.println("Contenido: " + contenido);
         System.out.println("Fecha: " + fecha);
         System.out.println("Id usuario emisor: " + idUsuarioEmisor);
         System.out.println("Id usuario receptor: " + idUsuarioReceptor);
     }
 
+    public String toString() {
+        return contenido + " " + titulo + " " + fecha.toString() + " " + Integer.toString(idUsuarioEmisor) + " " + Integer.toString(idUsuarioReceptor);
+    }
 
 }

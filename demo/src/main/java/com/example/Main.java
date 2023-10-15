@@ -1,14 +1,16 @@
 package com.example;
+import java.time.LocalDateTime;
 
 public class Main {
     public static void main(String[] args) {
+        LocalDateTime fecha = LocalDateTime.now();
+        System.out.println(fecha);
 
-    // Cargamos los usuarios en el registro para operarlos
-    Registro registro = new Registro(10);
-    registro.Import();
+        String fechaString = fecha.toString();
 
-    // Hacemos el menu de ingreso
-    registro.toFile();
+        //Veamos como parsear la fecha
+        LocalDateTime fechaParseada = LocalDateTime.parse(fechaString);
+        System.out.println(fechaParseada);
 
     }
 }
