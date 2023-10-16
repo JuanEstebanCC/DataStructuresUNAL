@@ -28,7 +28,7 @@ public class Mensajeria {
         while(!mensajesEnviados.isEmpty()) {
             Mensaje mensaje = (Mensaje) mensajesEnviados.pop();
             int idUsuarioReceptor = mensaje.getIdUsuarioReceptor();
-            String filePath = "demo/src/main/java/com/example/Datos/Mensajes/" + Integer.toString(idUsuarioReceptor) + "BA.txt";
+            String filePath = "demo/src/main/java/com/example/Datos/MensajesUsuarios/" + Integer.toString(idUsuarioReceptor) + "BA.txt";
 
             try {
             //Veamos si existe bandeja de entrada en la carpeta del usuario

@@ -70,7 +70,6 @@ public class Mensaje {
         idUsuarioEmisor = sc.nextInt();
         System.out.println("Ingrese el id del usuario receptor");
         idUsuarioReceptor = sc.nextInt();
-        sc.close();
         
         Mensaje m = new Mensaje(contenido, titulo, LocalDateTime.now(), idUsuarioEmisor, idUsuarioReceptor);
         return m;

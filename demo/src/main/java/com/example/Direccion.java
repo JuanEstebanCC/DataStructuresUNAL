@@ -78,8 +78,6 @@ public class Direccion {
 
         System.out.print("Ingrese el número del conjunto: ");
         noConjunto = sc.nextLine();
-
-        sc.close();
     }
 
     //Método para guardar como String

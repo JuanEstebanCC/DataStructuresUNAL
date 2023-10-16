@@ -190,12 +190,12 @@ public class Usuario {
             BufferedWriter escritorPassword = new BufferedWriter(new FileWriter(Password,true));
 
             // Escribir datos en el archivo Empleados
-            escritorEmpleados.write("\n");
+            escritorEmpleados.write("\r\n");
             escritorEmpleados.write(nombre + " " + id + " " + fecha_nacimiento.getDia() + " " + fecha_nacimiento.getMes() + " " + fecha_nacimiento.getAnio() + " " + ciudad_nacimiento + " " + telefono + " " + email + " " + direccion.getCalle() + " " + direccion.getNumero() + " " + direccion.getBarrio() + " " + direccion.getCiudad() + " "+ direccion.getConjunto() + " " + direccion.getNoConjunto());
             System.out.println("Datos guardados correctamente en Empleados.txt");
 
             // Escribir datos en el archivo Empleados
-            escritorPassword.write("\n");
+            escritorPassword.write("\r\n");
             escritorPassword.write(id+" "+contrasena+" "+"empleado");
             System.out.println("Datos guardados correctamente en Password.txt");
 

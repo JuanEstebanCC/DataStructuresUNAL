@@ -6,13 +6,14 @@ import java.util.Scanner;
 public class Menu {
     private Usuario usuarioLogueado;
     private Registro registro;
-    private RegistroCredenciales registroCredenciales;
+    public RegistroCredenciales registroCredenciales;
 
     public Menu() {
         usuarioLogueado = null;
         registro = new Registro(10);
         registroCredenciales = new RegistroCredenciales(10);
 
+        registroCredenciales.integridadMensajes();
         registro.Import();
         registroCredenciales.Import();
     }
@@ -55,8 +56,8 @@ public class Menu {
         String contrasena = sc.nextLine();
         Usuario u = registro.buscarUsuario(id);
         Credenciales c = registroCredenciales.buscarUsuario(id);
-        String tipoUser = c.getTipo();
         if (u != null && c != null) {
+            String tipoUser = c.getTipo();
             if (c.getContrasena().equals(contrasena)) {
                 usuarioLogueado = u;
                 if (tipoUser.equals("empleado")) {
@@ -139,6 +140,7 @@ public class Menu {
         int opcion;
         Scanner sc = new Scanner(System.in);
         // int userId = usuarioLogueado.getId();
+        Mensajeria envioMensaje = new Mensajeria(usuarioLogueado);
         do {
             System.out.print("\n\n\n");
             System.out.println("-----------------------------------------------------------");
@@ -153,6 +155,7 @@ public class Menu {
             System.out.println("-----------------------------------------------------------");
             System.out.print("Ingrese el número de opción: ");
             opcion = sc.nextInt();
+            sc.nextLine();
             switch (opcion) {
                 case 1:
                     System.out.println("Bandeja de entrada:");
@@ -165,6 +168,7 @@ public class Menu {
                     break;
                 case 4:
                     System.out.println("Enviar un mensaje");
+                    envioMensaje.agregarMensaje();
                     break;
                 case 5:
                     System.out.println("Gracias por usar el sistema!");
@@ -176,6 +180,7 @@ public class Menu {
             }
         } while (opcion != 5);
 
+        envioMensaje.enviarMensajes();
     }
 
 }

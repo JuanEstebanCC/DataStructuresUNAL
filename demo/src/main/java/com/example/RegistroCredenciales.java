@@ -170,5 +170,39 @@ public class RegistroCredenciales {
         }
         
     }
+
+    public void integridadMensajes(){
+        //Vamos a verificar que cada usuario tenga su bandeja de entrada, borradores y leidos
+        String filePath = "demo/src/main/java/com/example/Datos/MensajesUsuarios/";
+        for (int i = 0; i < numCredenciales; i++) {
+            String filePathUsuario = filePath + Integer.toString(registro[i].getid());
+            File bandejaEntrada = new File(filePathUsuario + "BA.txt");
+            File borradores = new File(filePathUsuario + "B.txt");
+            File leidos = new File(filePathUsuario + "ML.txt");
+            try {
+                if (!bandejaEntrada.exists()) {
+                    bandejaEntrada.createNewFile();
+                }
+            } catch (IOException e) {
+                System.err.println("El usuario no tiene bandeja de entrada" + e.getMessage());
+            }
+
+            try {
+                if (!borradores.exists()) {
+                    borradores.createNewFile();
+                }
+            } catch (IOException e) {
+                System.err.println("El usuario no tiene borradores" + e.getMessage());
+            }
+
+            try {
+                if (!leidos.exists()) {
+                    leidos.createNewFile();
+                }
+            } catch (IOException e) {
+                System.err.println("El usuario no tiene leidos" + e.getMessage());
+            }
+        }
+    }
 }
 
