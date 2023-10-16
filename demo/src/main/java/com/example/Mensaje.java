@@ -22,12 +22,12 @@ public class Mensaje {
         this.contenido = contenido;
     }
 
-    public void setFecha(LocalDateTime fecha) {
-        this.fecha = fecha;
+    public void setFecha() {
+        this.fecha = LocalDateTime.now();
     }
 
-    public void setIdUsuarioEmisor(int idUsuarioEmisor) {
-        this.idUsuarioEmisor = idUsuarioEmisor;
+    public void setEmisario(int Emisario) {
+        this.idUsuarioEmisor = Emisario;
     }
 
     public void setIdUsuarioReceptor(int idUsuarioReceptor) {
@@ -58,7 +58,8 @@ public class Mensaje {
         return titulo;
     }
 
-    public void crearMensaje() {
+    public Mensaje crearMensaje() {
+
         Scanner sc = new Scanner(System.in);
         System.out.println("Ingrese el contenido del mensaje");
         contenido = sc.nextLine();
@@ -70,6 +71,10 @@ public class Mensaje {
         System.out.println("Ingrese el id del usuario receptor");
         idUsuarioReceptor = sc.nextInt();
         sc.close();
+        
+        Mensaje m = new Mensaje(contenido, titulo, LocalDateTime.now(), idUsuarioEmisor, idUsuarioReceptor);
+        return m;
+ 
     }
 
     public void resumenMensaje() {
@@ -82,8 +87,7 @@ public class Mensaje {
         System.out.println("Titulo: " + titulo);
         System.out.println("Contenido: " + contenido);
         System.out.println("Fecha: " + fecha);
-        System.out.println("Id usuario emisor: " + idUsuarioEmisor);
-        System.out.println("Id usuario receptor: " + idUsuarioReceptor);
+        System.out.println("Emisario: " + idUsuarioEmisor);
     }
 
     public String toString() {
