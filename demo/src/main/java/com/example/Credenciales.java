@@ -43,11 +43,14 @@ public class Credenciales {
         Scanner sc = new Scanner(System.in);
         System.out.println("Ingrese el id del usuario");
         id = sc.nextInt();
+        setUsuario(id);
         sc.nextLine();
         System.out.println("Ingrese la contraseña del usuario");
         contrasena = sc.nextLine();
+        setContrasena(contrasena);
         System.out.println("Ingrese el tipo de usuario");
         tipo = sc.nextLine();
+        setTipo(tipo);
         sc.close();
     }
 }
