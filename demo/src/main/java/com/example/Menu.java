@@ -1,5 +1,6 @@
 package com.example;
 
+import java.io.IOException;
 import java.util.Scanner;
 
 public class Menu {
@@ -26,7 +27,7 @@ public class Menu {
             System.out.println("1. Ingresar");
             System.out.println("2. Salir");
             System.out.println("----------------------");
-            System.out.print("Ingrese el número de opción:");
+            System.out.print("Ingrese el número de opción: ");
             opcion = sc.nextInt();
             sc.nextLine();
             switch (opcion) {
@@ -50,7 +51,7 @@ public class Menu {
         System.out.println("Ingrese su id:");
         int id = sc.nextInt();
         sc.nextLine();
-        System.out.println("Ingrese su contraseña:");
+        System.out.println("Ingrese su contraseña: ");
         String contrasena = sc.nextLine();
         Usuario u = registro.buscarUsuario(id);
         Credenciales c = registroCredenciales.buscarUsuario(id);
@@ -79,7 +80,7 @@ public class Menu {
 
     // Menu para administrador
 
-    public void AdmonMenu(){
+    public void AdmonMenu() {
         int opcion;
         Scanner sc = new Scanner(System.in);
         do {
@@ -93,7 +94,7 @@ public class Menu {
             System.out.println("3. Eliminar un usuario");
             System.out.println("4. Salir");
             System.out.println("-----------------------------------------------------------");
-            System.out.print("Ingrese el número de opción:");
+            System.out.print("Ingrese el número de opción: ");
             opcion = sc.nextInt();
             Usuario nu = new Usuario();
             switch (opcion) {
@@ -113,7 +114,12 @@ public class Menu {
                     nu.cambiarPassUsuario(idChangePass);
                     break;
                 case 3:
+                    System.out.println("-----------------------------------------------------------");
                     System.out.println("Eliminar un usuario");
+                    System.out.println("-----------------------------------------------------------");
+                    System.out.println("Ingrese el id del empleado que desea eliminar: ");
+                    int id = sc.nextInt();
+                    nu.deleteUser(id);
                     break;
                 case 4:
                     System.out.println("Gracias por usar el sistema!");
@@ -145,7 +151,7 @@ public class Menu {
             System.out.println("4. Enviar un mensaje");
             System.out.println("5. Salir");
             System.out.println("-----------------------------------------------------------");
-            System.out.print("Ingrese el número de opción:");
+            System.out.print("Ingrese el número de opción: ");
             opcion = sc.nextInt();
             switch (opcion) {
                 case 1:

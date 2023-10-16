@@ -60,23 +60,23 @@ public class Direccion {
 
     public void leerDireccion() {
         Scanner sc = new Scanner(System.in);
-        System.out.println("Ingrese la calle: ");
+        System.out.print("Ingrese la calle: ");
         calle = sc.nextLine();
 
-        System.out.println("Ingrese el número de la calle: ");
+        System.out.print("Ingrese el número de la calle: ");
         noCalle = sc.nextLine();
         
 
-        System.out.println("Ingrese el barrio: ");
+        System.out.print("Ingrese el barrio: ");
         barrio = sc.nextLine();
 
-        System.out.println("Ingrese la ciudad: ");
+        System.out.print("Ingrese la ciudad: ");
         ciudad = sc.nextLine();
 
-        System.out.println("Ingrese el conjunto: ");
+        System.out.print("Ingrese el conjunto: ");
         conjunto = sc.nextLine();
 
-        System.out.println("Ingrese el número del conjunto: ");
+        System.out.print("Ingrese el número del conjunto: ");
         noConjunto = sc.nextLine();
 
         sc.close();

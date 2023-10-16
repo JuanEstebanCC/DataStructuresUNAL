@@ -1,6 +1,7 @@
 package com.example;
 import java.io.*;
 import java.util.Scanner;
+import java.util.*;
 
 
 public class Usuario {
@@ -133,7 +134,7 @@ public class Usuario {
     public void nuevoUsuario(){
         Scanner sc = new Scanner(System.in);
         String contrasena;
-        System.out.print("Ingrese la contraseña para el nuevo usuario:");
+        System.out.print("Ingrese la contraseña para el nuevo usuario: ");
         contrasena = sc.nextLine();
         System.out.println("----------------------------------------------------");
         System.out.println("A continuación ingrese los datos del nuevo usuario");
@@ -259,6 +260,94 @@ public class Usuario {
         }
 
 
+    }
+
+    // Metodo para eliminar un usuario del archivo
+    public void deleteUser(int id){
+        String archivo1 = "demo/src/main/java/com/example/Datos/InfoUsuarios/Empleados.txt";
+        String archivo2 = "demo/src/main/java/com/example/Datos/InfoUsuarios/Password.txt";
+
+
+        // Nombre del archivo
+        String idABuscar = Integer.toString(id);
+
+
+        // Nombre de los archivos temporales
+        String archivoTemporal1 = "archivo_temporal1.txt";
+        String archivoTemporal2 = "archivo_temporal2.txt";
+
+
+
+        try {
+            // Procesar archivo1
+            BufferedReader br1 = new BufferedReader(new FileReader(archivo1));
+            BufferedWriter bw1 = new BufferedWriter(new FileWriter(archivoTemporal1));
+            String linea1;
+
+            while ((linea1 = br1.readLine()) != null) {
+                // Dividir la línea en palabras utilizando un espacio en blanco como separador
+                String[] palabras1 = linea1.split(" ");
+
+                // Verificar si el segundo campo no coincide con el ID
+                if (palabras1.length >= 2 && !palabras1[1].equals(idABuscar)) {
+                    // Si no coinciden, escribir la línea en el archivo temporal 1
+                    bw1.write(linea1);
+                    bw1.newLine();
+                }
+            }
+
+            br1.close();
+            bw1.close();
+
+            // Reemplazar archivo1 con el archivo temporal 1
+            File archivoOriginal1 = new File(archivo1);
+            if (!archivoOriginal1.delete()) {
+                System.err.println("No se pudo eliminar el archivo Empleados txt.");
+                return;
+            }
+            File temporal1 = new File(archivoTemporal1);
+            if (!temporal1.renameTo(archivoOriginal1)) {
+                System.err.println("No se pudo reemplazar el archivo Empleados.txt");
+            } else {
+                System.out.println("Líneas eliminadas con éxito en el archivo de Empleados.txt");
+            }
+
+            // Procesar archivo2
+            BufferedReader br2 = new BufferedReader(new FileReader(archivo2));
+            BufferedWriter bw2 = new BufferedWriter(new FileWriter(archivoTemporal2));
+            String linea2;
+
+            while ((linea2 = br2.readLine()) != null) {
+                // Dividir la línea en palabras utilizando un espacio en blanco como separador
+                String[] palabras2 = linea2.split(" ");
+
+                // Verificar si el primer campo no coincide con el ID
+                if (palabras2.length >= 1 && !palabras2[0].equals(idABuscar)) {
+                    // Si no coinciden, escribir la línea en el archivo temporal 2
+                    bw2.write(linea2);
+                    bw2.newLine();
+                }
+            }
+
+            br2.close();
+            bw2.close();
+
+            // Reemplazar archivo2 con el archivo temporal 2
+            File archivoOriginal2 = new File(archivo2);
+            if (!archivoOriginal2.delete()) {
+                System.err.println("No se pudo eliminar el archivo Password.txt.");
+                return;
+            }
+            File temporal2 = new File(archivoTemporal2);
+            if (!temporal2.renameTo(archivoOriginal2)) {
+                System.err.println("No se pudo reemplazar el archivo Password.txt");
+            } else {
+                System.out.println("Líneas eliminadas con éxito en el archivo Password.txt");
+            }
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 
