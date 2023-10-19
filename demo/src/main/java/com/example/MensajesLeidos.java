@@ -15,13 +15,16 @@ public class MensajesLeidos {
     public MensajesLeidos(Usuario usuario){
         this.usuario = usuario;
         this.mensajesLeidos = new Queue();
+        // Cargamos los mensajes dependiendo del id del usuario
         String filePath = "demo/src/main/java/com/example/Datos/Mensajes/" + Integer.toString(usuario.getId()) + "ML.txt";
 
         try {
+            // Creamos el filereader
             File file = new File(filePath);
             FileReader fr = new FileReader(file);
             BufferedReader br = new BufferedReader(fr);
 
+            // Leemos el archivo por linea y creamos el usuario
             String line;
             while((line = br.readLine()) != null) {
                 String[] info = line.split("\\ ");
@@ -31,6 +34,8 @@ public class MensajesLeidos {
                 int remitente = Integer.parseInt(info[3]);
                 int destinatario = Integer.parseInt(info[4]);
                 Mensaje m = new Mensaje(asunto, contenido, fecha, remitente, destinatario);
+
+                // Almacenamos el mensaje en la Cola (Queue)
                 this.mensajesLeidos.enqueue(m);
             }
 
@@ -62,7 +67,7 @@ public class MensajesLeidos {
                     writer.write("\n");
                 }
 
-                // En la lista de mensajes, iteramos y escribimos en el archivo
+                // En la cola de mensajes, iteramos y escribimos en el archivo
                 while (!mensajesLeidos.isEmpty()) {
                     writer.write(mensajesLeidos.dequeue().toString() + "\n");
                 }

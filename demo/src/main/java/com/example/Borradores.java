@@ -11,19 +11,22 @@ import java.time.LocalDateTime;
 
 public class Borradores {
     private Stack borrador;
-    private Usuario usuario;
+    private Usuario usuario; // Cargamos el usuario
 
 
     public Borradores(Usuario usuario) {
         this.borrador = new Stack();
         this.usuario = usuario;
+        // Cargamos los mensajes dependiendo del id del usuario
         String filePath = "demo/src/main/java/com/example/Datos/Mensajes/" + Integer.toString(usuario.getId()) + "B.txt";
 
         try {
+            // Creamos el filereader
             File file = new File(filePath);
             FileReader fr = new FileReader(file);
             BufferedReader br = new BufferedReader(fr);
 
+            // Leemos el archivo por linea y creamos el usuario
             String line;
             while ((line = br.readLine()) != null) {
                 String[] info = line.split("\\ ");
@@ -33,6 +36,8 @@ public class Borradores {
                 int remitente = Integer.parseInt(info[3]);
                 int destinatario = Integer.parseInt(info[4]);
                 Mensaje m = new Mensaje(asunto, contenido, fecha, remitente, destinatario);
+
+                // Almacenamos el mensaje en la Pila (Stack)
                 this.borrador.push(m);
             }
 
@@ -68,7 +73,7 @@ public class Borradores {
                     writer.write("\n");
                 }
 
-                // En la lista de mensajes, iteramos y escribimos en el archivo
+                // En la pila de mensajes, iteramos y escribimos en el archivo
                 while (!borrador.isEmpty()) {
                     writer.write(borrador.pop().toString() + "\n");
                 }
