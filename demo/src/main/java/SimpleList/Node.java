@@ -1,12 +1,12 @@
 package SimpleList;
 
-public class Node {
+public class Node{
     private Object data;
     private Node next;
 
     //Constructoress, uno para settearlo por defecto y otro para settearlo con un valor
     public Node() {
-        this(null);
+        this.data = null;
     }
     public Node(Object data) {
         this.data = data;

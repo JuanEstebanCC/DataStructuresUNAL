@@ -20,6 +20,7 @@ public class List {
     public void setSize(int size) {
         this.size = size;
     }
+
     public boolean isEmpty() {
         return size == 0;
     }
@@ -39,8 +40,8 @@ public class List {
         } else {
             node.setNext(head);
             head = node;
-            size++;
         }
+        size++;
     }
     public void addLast(Object e){
         Node node = new Node(e);
@@ -50,18 +51,18 @@ public class List {
         } else {
             tail.setNext(node);
             tail = node;
-            size++;
         }
+        size++;
     }
+     
     public Object removeFirst() {
-        if (!isEmpty()) {
+        if (isEmpty()) {
+            return null;
+        } else {
             Node temp = head;
             head = head.getNext();
-            temp.setNext(null);
             size--;
             return temp.getData();
-        } else {
-            return null;
         }
     }
 
