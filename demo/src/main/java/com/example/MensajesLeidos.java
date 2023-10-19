@@ -61,7 +61,7 @@ public class MensajesLeidos {
             default:
                 System.out.println("Mensaje leido mas antiguo");
                 System.out.println("-----------------------------------------------------------");
-                Mensaje m = (Mensaje) mensajesLeidos.dequeue();
+                Mensaje m = (Mensaje) mensajesLeidos.first();
                 m.mostrarMensaje();
                 break;
         }
