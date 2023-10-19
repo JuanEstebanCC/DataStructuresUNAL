@@ -84,6 +84,7 @@ public class Menu {
     public void AdmonMenu() {
         int opcion;
         Scanner sc = new Scanner(System.in);
+        Mensajeria envioMensaje = new Mensajeria(usuarioLogueado);
         do {
             System.out.print("\n\n\n");
             System.out.println("-----------------------------------------------------------");
