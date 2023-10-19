@@ -29,7 +29,7 @@ public class BandejaEntrada {
             //Leemos las lineas y creamos los objetos Usuario
             String line;
             while((line = br.readLine()) != null){
-                String[] info = line.split("\\ "); //Dividimos el string por espacios
+                String[] info = line.split("\\|"); //Dividimos el string por espacios
                 String asunto = info[0];
                 String contenido = info[1];
                 LocalDateTime fecha = LocalDateTime.parse(info[2]);
@@ -77,7 +77,6 @@ public class BandejaEntrada {
     // HAY QUE SOLUCIONAR COMO SE ENVIAN MENSAJES A OTROS USUARIOS
 
     public void toMsgLeido(){
-
 
     }
 

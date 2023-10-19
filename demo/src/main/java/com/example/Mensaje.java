@@ -90,7 +90,7 @@ public class Mensaje {
     }
 
     public String toString() {
-        return contenido + " " + titulo + " " + fecha.toString() + " " + Integer.toString(idUsuarioEmisor) + " " + Integer.toString(idUsuarioReceptor);
+        return contenido + "|" + titulo + "|" + fecha.toString() + "|" + Integer.toString(idUsuarioEmisor) + "|" + Integer.toString(idUsuarioReceptor);
     }
 
 }

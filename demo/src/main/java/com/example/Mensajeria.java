@@ -9,7 +9,7 @@ import Stack.Stack;
 
 public class Mensajeria {
     private Usuario usuarioLogueado;
-    private Stack mensajesEnviados;
+    public Stack mensajesEnviados;
 
     public Mensajeria(Usuario usuarioLogueado) {
         this.usuarioLogueado = usuarioLogueado;

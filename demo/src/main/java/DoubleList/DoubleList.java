@@ -38,8 +38,8 @@ public class DoubleList{
             node.setNext(head);
             head.setPrev(node);
             head = node;
-            size++;
         }
+        size++;
     }
 
     public void addLast(Object e){
@@ -51,8 +51,8 @@ public class DoubleList{
             tail.setNext(node);
             node.setPrev(tail);
             tail = node;
-            size++;
         }
+        size++;
     }
 
     public Object removeFirst(){

@@ -27,7 +27,7 @@ public class MensajesLeidos {
             // Leemos el archivo por linea y creamos el usuario
             String line;
             while((line = br.readLine()) != null) {
-                String[] info = line.split("\\ ");
+                String[] info = line.split("\\|");
                 String asunto = info[0];
                 String contenido = info[1];
                 LocalDateTime fecha = LocalDateTime.parse(info[2]);
