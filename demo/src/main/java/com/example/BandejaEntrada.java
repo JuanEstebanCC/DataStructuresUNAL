@@ -76,6 +76,15 @@ public class BandejaEntrada {
     // FALTAN LOS METODOS PARA PASAR UN MENSAJE DE LA BA A LEIDOS Y A BORRADORES
     // HAY QUE SOLUCIONAR COMO SE ENVIAN MENSAJES A OTROS USUARIOS
 
+    public void toMsgLeido(){
+
+
+    }
+
+    public void toBorrador(){
+
+    }
+
     // Metodo para guardar los mensajes de la bandeja de entrada en la base de datos
     public void toFile(){
         // Path del archivo txt
