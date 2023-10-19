@@ -1,6 +1,7 @@
 package com.example;
 
 import java.io.IOException;
+import java.time.LocalDateTime;
 import java.util.Scanner;
 
 public class Menu {
@@ -84,7 +85,8 @@ public class Menu {
     public void AdmonMenu() {
         int opcion;
         Scanner sc = new Scanner(System.in);
-        Mensajeria envioMensaje = new Mensajeria(usuarioLogueado);
+        //Cargamos la bandeja de entrada, los borradores y leidos
+        BandejaEntrada bandejaEntrada = new BandejaEntrada(usuarioLogueado);
         do {
             System.out.print("\n\n\n");
             System.out.println("-----------------------------------------------------------");
@@ -94,7 +96,11 @@ public class Menu {
             System.out.println("1. Registrar un nuevo usuario");
             System.out.println("2. Cambiar una contraseña");
             System.out.println("3. Eliminar un usuario");
-            System.out.println("4. Salir");
+            System.out.println("4. Ver bandeja de entrada");
+            System.out.println("5. Ver mensajes leídos");
+            System.out.println("6. Ver borradores");
+            System.out.println("7. Enviar un mensaje");
+            System.out.println("8. Salir");
             System.out.println("-----------------------------------------------------------");
             System.out.print("Ingrese el número de opción: ");
             opcion = sc.nextInt();
@@ -124,6 +130,12 @@ public class Menu {
                     nu.deleteUser(id);
                     break;
                 case 4:
+                    System.out.println("Bandeja de entrada:");
+                    bandejaEntrada.mostrarBandeja();
+
+
+                    break;
+                case 7:
                     System.out.println("Gracias por usar el sistema!");
                     System.exit(0);
                     break;
@@ -140,9 +152,10 @@ public class Menu {
     public void UserMenu() {
         int opcion;
         Scanner sc = new Scanner(System.in);
-        // int userId = usuarioLogueado.getId();
-        Mensajeria envioMensaje = new Mensajeria(usuarioLogueado);
         do {
+            //Se cargan los mensajes del usuario, en bandeja de entrada, borradores y leidos
+            //BandejaEntrada bandejaEntrada = new BandejaEntrada(userId);
+
             System.out.print("\n\n\n");
             System.out.println("-----------------------------------------------------------");
             System.out.println("Bienvenido/a " + "Empleado: " + usuarioLogueado.getNombre());
@@ -169,7 +182,22 @@ public class Menu {
                     break;
                 case 4:
                     System.out.println("Enviar un mensaje");
-                    envioMensaje.agregarMensaje();
+                    Mensaje m = new Mensaje("","",LocalDateTime.now(),"",0);
+                    m = m.crearMensaje(usuarioLogueado.getNombre());
+                    System.out.println("Mensaje creado, desea enviarlo? (s/n)");
+                    String respuesta = sc.nextLine();
+                    switch (respuesta) {
+                        case "s":
+                            m.enviarMensaje();
+                            break;
+                        case "n":
+                            System.out.println("Mensaje guardado en borradores");
+                            //Se guarda en los borradores
+                            break;
+                        default:
+                            System.out.println("Opción no válida!");
+                            break;
+                    }
                     break;
                 case 5:
                     System.out.println("Gracias por usar el sistema!");
@@ -180,8 +208,6 @@ public class Menu {
                     break;
             }
         } while (opcion != 5);
-
-        envioMensaje.enviarMensajes();
     }
 
 }

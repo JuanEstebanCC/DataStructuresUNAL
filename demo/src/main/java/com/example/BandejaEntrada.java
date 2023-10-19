@@ -33,7 +33,7 @@ public class BandejaEntrada {
                 String asunto = info[0];
                 String contenido = info[1];
                 LocalDateTime fecha = LocalDateTime.parse(info[2]);
-                int remitente = Integer.parseInt(info[3]);
+                String remitente = info[3];
                 int destinatario = Integer.parseInt(info[4]);
                 
                 // Guardamos las credenciales en el registro
@@ -43,7 +43,7 @@ public class BandejaEntrada {
             }
             br.close();
         } catch (IOException e) {
-            System.err.println("Un error leyendo el archivo: " + e.getMessage());
+            System.err.println("Un error leyendo la bandeja de entrada" + e.getMessage());
         }
 
     }
@@ -62,15 +62,13 @@ public class BandejaEntrada {
     }
 
     // Metodo leer un mensaje de la bandeja de entrada, por el titulo del mismo
-    public void leerMensaje(String titulo){
+    public void leerMensaje(int n){
+        int i = 1;
         DoubleNode current = mensajes.First();
-        while (current != null) {
-            if (((Mensaje) current.getData()).getTitulo() == titulo) {
-                ((Mensaje) current.getData()).mostrarMensaje();
-                return;
-            }
+        while (i < n) {
             current = current.getNext();
         }
+        ((Mensaje) current.getData()).mostrarMensaje();
     }
 
     // FALTAN LOS METODOS PARA PASAR UN MENSAJE DE LA BA A LEIDOS Y A BORRADORES

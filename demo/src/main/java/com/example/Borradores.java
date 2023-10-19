@@ -32,7 +32,7 @@ public class Borradores {
                 String asunto = info[0];
                 String contenido = info[1];
                 LocalDateTime fecha = LocalDateTime.parse(info[2]);
-                int remitente = Integer.parseInt(info[3]);
+                String remitente = info[3];
                 int destinatario = Integer.parseInt(info[4]);
                 Mensaje m = new Mensaje(asunto, contenido, fecha, remitente, destinatario);
 
