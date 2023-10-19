@@ -72,14 +72,16 @@ public class BandejaEntrada {
         }
     }
 
-    // Metodo leer un mensaje de la bandeja de entrada, por el titulo del mismo
+    // Metodo leer un mensaje de la bandeja de entrada, por el orden en que aparece
     public Mensaje leerMensaje(int n){
         int i = 1;
         DoubleNode current = mensajes.First();
         while (i < n) {
             current = current.getNext();
+            i++;
         }
-        return ((Mensaje) current.getData());
+        Mensaje m = (Mensaje) mensajes.remove(current);
+        return m;
     }
 
     // Metodo para eliminar un mensaje de la bandeja de entrada

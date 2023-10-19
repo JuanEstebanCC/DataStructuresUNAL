@@ -87,7 +87,6 @@ public class Menu {
         BandejaEntrada bandejaEntrada = new BandejaEntrada(usuarioLogueado);
         MensajesLeidos mensajesLeidos = new MensajesLeidos(usuarioLogueado);
         Borradores borradores = new Borradores(usuarioLogueado);
-
         do {
             System.out.print("\n\n\n");
             System.out.println("-----------------------------------------------------------");
@@ -151,12 +150,11 @@ public class Menu {
 
                             //Se guarda el mensaje en los mensajes leidos
                             mensajesLeidos.guardarMensaje(m);
-                            mensajesLeidos.toFile();
                             break;
                         case 2:
                             System.out.println("Ingrese el número del mensaje que desea eliminar");
                             int d = sc.nextInt();
-                            bandejaEntrada.eliminarMensaje(d);
+                            bandejaEntrada.leerMensaje(d);
                             System.out.println("Mensaje eliminado");
                             break;
                         case 3:
@@ -241,7 +239,6 @@ public class Menu {
                             System.out.println("Mensaje guardado en borradores");
                             //Se guarda en los borradores
                             borradores.guardarBorrador(mensaje);
-                            borradores.toFile();
                             break;
                         case 3:
                             System.out.println("Mensaje eliminado");
@@ -261,6 +258,9 @@ public class Menu {
                     break;
             }
         } while (opcion != 8);
+        bandejaEntrada.toFile();
+        mensajesLeidos.toFile();
+        borradores.toFile();
     }
 
 
@@ -269,11 +269,11 @@ public class Menu {
     public void UserMenu() {
         int opcion;
         Scanner sc = new Scanner(System.in);
+        BandejaEntrada bandejaEntrada = new BandejaEntrada(usuarioLogueado);
+        MensajesLeidos mensajesLeidos = new MensajesLeidos(usuarioLogueado);
+        Borradores borradores = new Borradores(usuarioLogueado);
         do {
             //Se cargan los mensajes del usuario, en bandeja de entrada, borradores y leidos
-            BandejaEntrada bandejaEntrada = new BandejaEntrada(usuarioLogueado);
-            MensajesLeidos mensajesLeidos = new MensajesLeidos(usuarioLogueado);
-            Borradores borradores = new Borradores(usuarioLogueado);
 
             System.out.print("\n\n\n");
             System.out.println("-----------------------------------------------------------");
@@ -311,12 +311,11 @@ public class Menu {
 
                             //Se guarda el mensaje en los mensajes leidos
                             mensajesLeidos.guardarMensaje(m);
-                            mensajesLeidos.toFile();
                             break;
                         case 2:
                             System.out.println("Ingrese el número del mensaje que desea eliminar");
                             int d = sc.nextInt();
-                            bandejaEntrada.eliminarMensaje(d);
+                            bandejaEntrada.leerMensaje(d);
                             System.out.println("Mensaje eliminado");
                             break;
                         case 3:
@@ -331,7 +330,6 @@ public class Menu {
                     System.out.println("Mensajes leídos:");
                     System.out.println("-----------------------------------------------------------");
                     mensajesLeidos.mostrarMensajesLeidos();
-                    mensajesLeidos.toFile();
                     break;
                 case 3:
                     System.out.println("-----------------------------------------------------------");
@@ -400,7 +398,6 @@ public class Menu {
                             System.out.println("Mensaje guardado en borradores");
                             //Se guarda en los borradores
                             borradores.guardarBorrador(mensaje);
-                            borradores.toFile();
                             break;
                         case 3:
                             System.out.println("Mensaje eliminado");
@@ -419,6 +416,9 @@ public class Menu {
                     break;
             }
         } while (opcion != 5);
+        bandejaEntrada.toFile();
+        mensajesLeidos.toFile();
+        borradores.toFile();
     }
 
 }
