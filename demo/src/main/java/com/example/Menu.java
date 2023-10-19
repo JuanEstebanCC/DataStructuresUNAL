@@ -251,6 +251,9 @@ public class Menu {
 
                 case 8:
                     System.out.println("Gracias por usar el sistema!");
+                    bandejaEntrada.toFile();
+                    mensajesLeidos.toFile();
+                    borradores.toFile();
                     System.exit(0);
                     break;
                 default:
@@ -258,9 +261,7 @@ public class Menu {
                     break;
             }
         } while (opcion != 8);
-        bandejaEntrada.toFile();
-        mensajesLeidos.toFile();
-        borradores.toFile();
+
     }
 
 
@@ -409,6 +410,9 @@ public class Menu {
                     break;
                 case 5:
                     System.out.println("Gracias por usar el sistema!");
+                    bandejaEntrada.toFile();
+                    mensajesLeidos.toFile();
+                    borradores.toFile();
                     System.exit(0);
                     break;
                 default:
@@ -416,9 +420,7 @@ public class Menu {
                     break;
             }
         } while (opcion != 5);
-        bandejaEntrada.toFile();
-        mensajesLeidos.toFile();
-        borradores.toFile();
+
     }
 
 }
