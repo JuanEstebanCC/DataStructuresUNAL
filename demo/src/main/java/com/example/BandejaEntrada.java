@@ -19,7 +19,7 @@ public class BandejaEntrada {
         this.mensajes = new DoubleList();
         
         // Cargamos los mensajes del usuario
-        String filePath = "demo/src/main/java/com/example/Datos/Mensajes/" + Integer.toString(usuario.getId()) + "BA.txt";
+        String filePath = "demo/src/main/java/com/example/Datos/MensajesUsuarios/" + Integer.toString(usuario.getId()) + "BA.txt";
         try {
             //Abrimos el archivo y creamos un BufferedReader para leerlo
             File file = new File(filePath);
@@ -51,13 +51,20 @@ public class BandejaEntrada {
     // Metodo para mostrar los mensajes de la bandeja de entrada
     public void mostrarBandeja(){
         System.out.println("Mensajes de la bandeja de entrada:");
-        DoubleNode current = mensajes.First();
-        int i = 1;
-        while (current != null) {
-            System.out.println(Integer.toString(i) + "\n");
-           ((Mensaje) current.getData()).resumenMensaje();
-            current = current.getNext();
-            i++;
+        switch (mensajes.getSize()) {
+            case 0:
+                System.out.println("No hay mensajes en la bandeja de entrada");
+                break;
+            default:
+                DoubleNode current = mensajes.First();
+                int i = 1;
+                while (current != null) {
+                System.out.println(Integer.toString(i) + "\n");
+                ((Mensaje) current.getData()).resumenMensaje();
+                current = current.getNext();
+                i++;
+            }
+                break;
         }
     }
 
@@ -85,7 +92,7 @@ public class BandejaEntrada {
     // Metodo para guardar los mensajes de la bandeja de entrada en la base de datos
     public void toFile(){
         // Path del archivo txt
-        String filePath = "demo/src/main/java/com/example/Datos/Mensajes/" + Integer.toString(usuario.getId()) + "BA.txt";
+        String filePath = "demo/src/main/java/com/example/Datos/MensajesUsuarios/" + Integer.toString(usuario.getId()) + "BA.txt";
 
         // Delete the existing file
         boolean fileDeleted = new File(filePath).delete();

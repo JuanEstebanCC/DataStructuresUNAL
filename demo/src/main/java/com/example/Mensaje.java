@@ -91,7 +91,7 @@ public class Mensaje {
 
     public void enviarMensaje() {
         //Accedemos a la ruta de la bandeja de entrada del receptor
-        String path = "demo/src/main/java/com/example/Datos/MensajesUsuarios/" + Integer.toString(idUsuarioReceptor) + ".txt";
+        String path = "demo/src/main/java/com/example/Datos/MensajesUsuarios/" + Integer.toString(idUsuarioReceptor) + "BA.txt";
 
         //Abrimos el archivo
         try {

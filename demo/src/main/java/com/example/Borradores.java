@@ -17,7 +17,7 @@ public class Borradores {
         this.borrador = new Stack();
         this.usuario = usuario;
         // Cargamos los mensajes dependiendo del id del usuario
-        String filePath = "demo/src/main/java/com/example/Datos/Mensajes/" + Integer.toString(usuario.getId()) + "B.txt";
+        String filePath = "demo/src/main/java/com/example/Datos/MensajesUsuarios/" + Integer.toString(usuario.getId()) + "B.txt";
 
         try {
             // Creamos el filereader
@@ -46,6 +46,11 @@ public class Borradores {
         }
     }
 
+    public void guardarBorrador(Mensaje m) {
+        // Guardamos el mensaje en la pila
+        borrador.push(m);
+    }
+
     public void mostrarBorradores(int e) {
         // Ver borrador
 
@@ -60,7 +65,7 @@ public class Borradores {
     }
 
     public void toFile(){
-        String filePath = "demo/src/main/java/com/example/Datos/Mensajes/" + Integer.toString(this.usuario.getId()) + "B.txt";
+        String filePath = "demo/src/main/java/com/example/Datos/MensajesUsuarios/" + Integer.toString(this.usuario.getId()) + "B.txt";
         boolean fileDeleted = (new File(filePath)).delete();
         if (!fileDeleted) {
             System.err.println("Error deleting the file");

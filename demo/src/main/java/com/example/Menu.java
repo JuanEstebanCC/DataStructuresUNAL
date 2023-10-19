@@ -44,7 +44,6 @@ public class Menu {
                     break;
             }
         } while (opcion != 2);
-        sc.close();
     }
 
     // Metodo para ingresar al sistema
@@ -76,7 +75,6 @@ public class Menu {
             System.out.println("Usuario no encontrado");
             System.exit(0);
         }
-        sc.close();
     }
 
 
@@ -154,7 +152,9 @@ public class Menu {
         Scanner sc = new Scanner(System.in);
         do {
             //Se cargan los mensajes del usuario, en bandeja de entrada, borradores y leidos
-            //BandejaEntrada bandejaEntrada = new BandejaEntrada(userId);
+            BandejaEntrada bandejaEntrada = new BandejaEntrada(usuarioLogueado);
+            MensajesLeidos mensajesLeidos = new MensajesLeidos(usuarioLogueado);
+            Borradores borradores = new Borradores(usuarioLogueado);
 
             System.out.print("\n\n\n");
             System.out.println("-----------------------------------------------------------");
@@ -184,15 +184,22 @@ public class Menu {
                     System.out.println("Enviar un mensaje");
                     Mensaje m = new Mensaje("","",LocalDateTime.now(),"",0);
                     m = m.crearMensaje(usuarioLogueado.getNombre());
-                    System.out.println("Mensaje creado, desea enviarlo? (s/n)");
-                    String respuesta = sc.nextLine();
+                    System.out.println("Mensaje creado, elija una opción:");
+                    System.out.println("1. Enviar");
+                    System.out.println("2. Guardar en borradores");
+                    System.out.println("3. Eliminar");
+                    int respuesta = sc.nextInt();
                     switch (respuesta) {
-                        case "s":
+                        case 1:
                             m.enviarMensaje();
                             break;
-                        case "n":
+                        case 2:
                             System.out.println("Mensaje guardado en borradores");
                             //Se guarda en los borradores
+                            borradores.guardarBorrador(m);
+                            break;
+                        case 3:
+                            System.out.println("Mensaje eliminado");
                             break;
                         default:
                             System.out.println("Opción no válida!");

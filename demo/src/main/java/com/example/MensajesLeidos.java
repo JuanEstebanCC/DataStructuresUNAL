@@ -16,7 +16,7 @@ public class MensajesLeidos {
         this.usuario = usuario;
         this.mensajesLeidos = new Queue();
         // Cargamos los mensajes dependiendo del id del usuario
-        String filePath = "demo/src/main/java/com/example/Datos/Mensajes/" + Integer.toString(usuario.getId()) + "ML.txt";
+        String filePath = "demo/src/main/java/com/example/Datos/MensajesUsuarios/" + Integer.toString(usuario.getId()) + "ML.txt";
 
         try {
             // Creamos el filereader
@@ -55,7 +55,7 @@ public class MensajesLeidos {
     }
 
     public void toFile(){
-        String filePath = "demo/src/main/java/com/example/Datos/Mensajes/" + Integer.toString(this.usuario.getId()) + "ML.txt";
+        String filePath = "demo/src/main/java/com/example/Datos/MensajesUsuarios/" + Integer.toString(this.usuario.getId()) + "ML.txt";
         boolean fileDeleted = (new File(filePath)).delete();
         if (!fileDeleted) {
             System.err.println("Error deleting the file");
