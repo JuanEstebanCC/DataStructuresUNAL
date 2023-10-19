@@ -33,14 +33,10 @@ public class Mensajeria {
             try {
             //Veamos si existe bandeja de entrada en la carpeta del usuario
             File file = new File(filePath);
-            if (!file.exists()) {
-                file.createNewFile();
-            } else {
-                //Si existe, agregamos el mensaje al final
-                FileWriter fw = new FileWriter(file, true);
-                fw.write(mensaje.toString()+ "\n");
-                fw.close();
-            }
+            
+            FileWriter fw = new FileWriter(file, true);
+            fw.write(mensaje.toString()+ "\n");
+            fw.close();
             } catch (IOException e) {
             System.err.println("No se ha podido mandar el mensaje: " + e.getMessage());
             }
