@@ -56,9 +56,12 @@ public class MensajesLeidos {
     
         switch (mensajesLeidos.getSize()) {
             case 0:
+                System.out.println("-----------------------------------------------------------");
                 System.out.println("No hay mensajes leidos");
+                System.out.println("-----------------------------------------------------------");
                 break;
             default:
+                System.out.println("-----------------------------------------------------------");
                 System.out.println("Mensaje leido mas antiguo");
                 System.out.println("-----------------------------------------------------------");
                 Mensaje m = (Mensaje) mensajesLeidos.first();
@@ -87,7 +90,6 @@ public class MensajesLeidos {
 
 
                 writer.close();
-                System.out.println("La información ha sido añadida al archivo.");
             } catch (IOException e) {
                 System.err.println("Un error añadiendo la información al archivo: " + e.getMessage());
             }

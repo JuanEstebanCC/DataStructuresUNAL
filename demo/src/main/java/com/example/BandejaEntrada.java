@@ -55,6 +55,7 @@ public class BandejaEntrada {
         switch (mensajes.getSize()) {
             case 0:
                 System.out.println("No hay mensajes en la bandeja de entrada");
+                System.out.println("-----------------------------------------------------------");
                 break;
             default:
                 DoubleNode current = mensajes.First();
@@ -64,6 +65,8 @@ public class BandejaEntrada {
                 ((Mensaje) current.getData()).resumenMensaje();
                 current = current.getNext();
                 i++;
+
+
             }
                 break;
         }

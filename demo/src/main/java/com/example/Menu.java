@@ -131,12 +131,15 @@ public class Menu {
                     nu.deleteUser(id);
                     break;
                 case 4:
+                    System.out.println("-----------------------------------------------------------");
                     System.out.println("Bandeja de entrada:");
                     bandejaEntrada.mostrarBandeja();
+                    System.out.println("-----------------------------------------------------------");
                     System.out.println("Que desea hacer?");
                     System.out.println("1. Leer un mensaje");
                     System.out.println("2. Eliminar un mensaje");
                     System.out.println("3. Volver atras");
+                    System.out.println("-----------------------------------------------------------");
                     int respuesta = sc.nextInt();
                     switch (respuesta) {
                         case 1:
@@ -164,22 +167,32 @@ public class Menu {
                     }
                     break;
                 case 5:
+
+                    System.out.println("-----------------------------------------------------------");
                     System.out.println("Mensajes leídos:");
+                    System.out.println("-----------------------------------------------------------");
                     mensajesLeidos.mostrarMensajesLeidos();
+                    System.out.println("-----------------------------------------------------------");
                     break;
                 case 6:
+                    System.out.println("-----------------------------------------------------------");
                     System.out.println("Borradores:");
+                    System.out.println("-----------------------------------------------------------");
                     //Accedemos al ultimo borrador
                     Mensaje m = borradores.mostrarBorrador();
                     if(m == null){
+                        System.out.println("-----------------------------------------------------------");
                         System.out.println("No hay borradores disponibles");
+                        System.out.println("-----------------------------------------------------------");
                     }
                     else{
                         m.mostrarMensaje();
+                        System.out.println("-----------------------------------------------------------");
                         System.out.println("Que desea hacer?");
                         System.out.println("1. Enviar");
                         System.out.println("2. Editar");
                         System.out.println("3. Eliminar");
+                        System.out.println("-----------------------------------------------------------");
                         int response = sc.nextInt();
                         switch (response) {
                             case 1:
@@ -208,13 +221,17 @@ public class Menu {
                     }
 
                 case 7:
+                    System.out.println("-----------------------------------------------------------");
                     System.out.println("Enviar un mensaje");
+                    System.out.println("-----------------------------------------------------------");
                     Mensaje mensaje = new Mensaje("","",LocalDateTime.now(),"",0);
                     mensaje = mensaje.crearMensaje(usuarioLogueado.getNombre());
+                    System.out.println("-----------------------------------------------------------");
                     System.out.println("Mensaje creado, elija una opción:");
                     System.out.println("1. Enviar");
                     System.out.println("2. Guardar en borradores");
                     System.out.println("3. Eliminar");
+                    System.out.println("-----------------------------------------------------------");
                     int response_2 = sc.nextInt();
                     switch (response_2) {
                         case 1:
@@ -274,12 +291,15 @@ public class Menu {
             sc.nextLine();
             switch (opcion) {
                 case 1:
+                    System.out.println("-----------------------------------------------------------");
                     System.out.println("Bandeja de entrada:");
                     bandejaEntrada.mostrarBandeja();
+                    System.out.println("-----------------------------------------------------------");
                     System.out.println("Que desea hacer?");
                     System.out.println("1. Leer un mensaje");
                     System.out.println("2. Eliminar un mensaje");
                     System.out.println("3. Volver atras");
+                    System.out.println("-----------------------------------------------------------");
                     int respuesta = sc.nextInt();
                     switch (respuesta) {
                         case 1:
@@ -307,23 +327,31 @@ public class Menu {
                     }
                     break;
                 case 2:
+                    System.out.println("-----------------------------------------------------------");
                     System.out.println("Mensajes leídos:");
+                    System.out.println("-----------------------------------------------------------");
                     mensajesLeidos.mostrarMensajesLeidos();
                     mensajesLeidos.toFile();
                     break;
                 case 3:
+                    System.out.println("-----------------------------------------------------------");
                     System.out.println("Borradores:");
+                    System.out.println("-----------------------------------------------------------");
                     //Accedemos al ultimo borrador
                     Mensaje m = borradores.mostrarBorrador();
                     if(m == null){
+                        System.out.println("-----------------------------------------------------------");
                         System.out.println("No hay borradores disponibles");
+                        System.out.println("-----------------------------------------------------------");
                     }
                     else{
                         m.mostrarMensaje();
+                        System.out.println("-----------------------------------------------------------");
                         System.out.println("Que desea hacer?");
                         System.out.println("1. Enviar");
                         System.out.println("2. Editar");
                         System.out.println("3. Eliminar");
+                        System.out.println("-----------------------------------------------------------");
                         int response = sc.nextInt();
                         switch (response) {
                             case 1:
@@ -352,13 +380,17 @@ public class Menu {
                     }
                     break;
                 case 4:
+                    System.out.println("-----------------------------------------------------------");
                     System.out.println("Enviar un mensaje");
+                    System.out.println("-----------------------------------------------------------");
                     Mensaje mensaje = new Mensaje("","",LocalDateTime.now(),"",0);
                     mensaje = mensaje.crearMensaje(usuarioLogueado.getNombre());
+                    System.out.println("-----------------------------------------------------------");
                     System.out.println("Mensaje creado, elija una opción:");
                     System.out.println("1. Enviar");
                     System.out.println("2. Guardar en borradores");
                     System.out.println("3. Eliminar");
+                    System.out.println("-----------------------------------------------------------");
                     int response_2 = sc.nextInt();
                     switch (response_2) {
                         case 1:

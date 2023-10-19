@@ -79,7 +79,6 @@ public class Borradores {
                 }
 
                 writer.close();
-                System.out.println("La información ha sido añadida al archivo.");
             } catch (IOException e) {
                 System.err.println("Un error añadiendo la información al archivo: " + e.getMessage());
             }
