@@ -51,21 +51,17 @@ public class Borradores {
         borrador.push(m);
     }
 
-    public void mostrarBorradores(int e) {
+    public Mensaje mostrarBorrador() {
         // Ver borrador
-
-        System.out.println(borrador.top());
-        if (e == 1) {
-            // Se descarta el borrador
-            borrador.pop();
-        } else {
-            // Se envia el mensaje
-
-        }
+        return (Mensaje) borrador.pop();
     }
 
     public void toFile(){
         String filePath = "demo/src/main/java/com/example/Datos/MensajesUsuarios/" + Integer.toString(this.usuario.getId()) + "B.txt";
+        Stack inverso = new Stack(); //Stack para invertir el orden de los mensajes y guardarlos en orden del mas reciente
+        while (!borrador.isEmpty()) {
+            inverso.push(borrador.pop());
+        }
         boolean fileDeleted = (new File(filePath)).delete();
         if (!fileDeleted) {
             System.err.println("Error deleting the file");
@@ -74,14 +70,13 @@ public class Borradores {
                 boolean fileExists = Files.exists(Path.of(filePath), new LinkOption[0]);
                 FileWriter writer = new FileWriter(filePath, true);
                 if (fileExists && Files.size(Path.of(filePath)) > 0) {
-                    writer.write("\n");
+                    writer.write("\r\n");
                 }
 
                 // En la pila de mensajes, iteramos y escribimos en el archivo
-                while (!borrador.isEmpty()) {
-                    writer.write(borrador.pop().toString() + "\n");
+                while (!inverso.isEmpty()) {
+                    writer.write(inverso.pop().toString() + "\r\n");
                 }
-
 
                 writer.close();
                 System.out.println("La información ha sido añadida al archivo.");

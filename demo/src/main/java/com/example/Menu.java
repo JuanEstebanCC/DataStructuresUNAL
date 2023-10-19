@@ -85,6 +85,9 @@ public class Menu {
         Scanner sc = new Scanner(System.in);
         //Cargamos la bandeja de entrada, los borradores y leidos
         BandejaEntrada bandejaEntrada = new BandejaEntrada(usuarioLogueado);
+        MensajesLeidos mensajesLeidos = new MensajesLeidos(usuarioLogueado);
+        Borradores borradores = new Borradores(usuarioLogueado);
+
         do {
             System.out.print("\n\n\n");
             System.out.println("-----------------------------------------------------------");
@@ -130,9 +133,39 @@ public class Menu {
                 case 4:
                     System.out.println("Bandeja de entrada:");
                     bandejaEntrada.mostrarBandeja();
+                    System.out.println("Que desea hacer?");
+                    System.out.println("1. Leer un mensaje");
+                    System.out.println("2. Eliminar un mensaje");
+                    int respuesta = sc.nextInt();
+                    switch (respuesta) {
+                        case 1:
+                            System.out.println("Ingrese el número del mensaje que desea leer");
+                            int e = sc.nextInt();
+                            Mensaje m = bandejaEntrada.leerMensaje(e);
 
+                            m.mostrarMensaje();
 
+                            //Se guarda el mensaje en los mensajes leidos
+                            mensajesLeidos.guardarMensaje(m);
+                            break;
+                        case 2:
+                            System.out.println("Ingrese el número del mensaje que desea eliminar");
+                            int d = sc.nextInt();
+                            bandejaEntrada.eliminarMensaje(d);
+                            System.out.println("Mensaje eliminado");
+                            break;
+                        default:
+                            System.out.println("Opción no válida!");
+                            break;
+                    }
                     break;
+                case 5:
+                    System.out.println("Mensajes leídos:");
+                    mensajesLeidos.mostrarMensajesLeidos();
+                    break;
+                case 6:
+                    System.out.println("Borradores:");
+
                 case 7:
                     System.out.println("Gracias por usar el sistema!");
                     System.exit(0);
@@ -141,7 +174,7 @@ public class Menu {
                     System.out.println("Opción no válida!");
                     break;
             }
-        } while (opcion != 4);
+        } while (opcion != 7);
     }
 
 
@@ -173,30 +206,88 @@ public class Menu {
             switch (opcion) {
                 case 1:
                     System.out.println("Bandeja de entrada:");
+                    bandejaEntrada.mostrarBandeja();
+                    System.out.println("Que desea hacer?");
+                    System.out.println("1. Leer un mensaje");
+                    System.out.println("2. Eliminar un mensaje");
+                    int respuesta = sc.nextInt();
+                    switch (respuesta) {
+                        case 1:
+                            System.out.println("Ingrese el número del mensaje que desea leer");
+                            int e = sc.nextInt();
+                            Mensaje m = bandejaEntrada.leerMensaje(e);
+
+                            m.mostrarMensaje();
+
+                            //Se guarda el mensaje en los mensajes leidos
+                            mensajesLeidos.guardarMensaje(m);
+                            break;
+                        case 2:
+                            System.out.println("Ingrese el número del mensaje que desea eliminar");
+                            int d = sc.nextInt();
+                            bandejaEntrada.eliminarMensaje(d);
+                            System.out.println("Mensaje eliminado");
+                            break;
+                        default:
+                            System.out.println("Opción no válida!");
+                            break;
+                    }
                     break;
                 case 2:
                     System.out.println("Mensajes leídos:");
+                    mensajesLeidos.mostrarMensajesLeidos();
                     break;
                 case 3:
                     System.out.println("Borradores:");
-                    break;
-                case 4:
-                    System.out.println("Enviar un mensaje");
-                    Mensaje m = new Mensaje("","",LocalDateTime.now(),"",0);
-                    m = m.crearMensaje(usuarioLogueado.getNombre());
-                    System.out.println("Mensaje creado, elija una opción:");
+                    //Accedemos al ultimo borrador
+                    Mensaje m = borradores.mostrarBorrador();
+                    m.mostrarMensaje();
+                    System.out.println("Que desea hacer?");
                     System.out.println("1. Enviar");
-                    System.out.println("2. Guardar en borradores");
+                    System.out.println("2. Editar");
                     System.out.println("3. Eliminar");
-                    int respuesta = sc.nextInt();
-                    switch (respuesta) {
+                    int response = sc.nextInt();
+                    switch (response) {
                         case 1:
                             m.enviarMensaje();
                             break;
                         case 2:
+                            System.out.println("Ingrese el contenido del mensaje");
+                            String contenido = sc.nextLine();
+                            m.setContenido(contenido);
+                            System.out.println("Ingrese el titulo del mensaje");
+                            String titulo = sc.nextLine();
+                            m.setTitulo(titulo);
+                            System.out.println("Ingrese el id del usuario receptor");
+                            int idUsuarioReceptor = sc.nextInt();
+                            m.setIdUsuarioReceptor(idUsuarioReceptor);
+                            System.out.println("Mensaje editado");
+                            break;
+                        case 3:
+                            System.out.println("Mensaje eliminado");
+                            break;
+                        default:
+                            System.out.println("Opción no válida!");
+                            break;
+                    }
+                    break;
+                case 4:
+                    System.out.println("Enviar un mensaje");
+                    Mensaje mensaje = new Mensaje("","",LocalDateTime.now(),"",0);
+                    mensaje = mensaje.crearMensaje(usuarioLogueado.getNombre());
+                    System.out.println("Mensaje creado, elija una opción:");
+                    System.out.println("1. Enviar");
+                    System.out.println("2. Guardar en borradores");
+                    System.out.println("3. Eliminar");
+                    int response_2 = sc.nextInt();
+                    switch (response_2) {
+                        case 1:
+                            mensaje.enviarMensaje();
+                            break;
+                        case 2:
                             System.out.println("Mensaje guardado en borradores");
                             //Se guarda en los borradores
-                            borradores.guardarBorrador(m);
+                            borradores.guardarBorrador(mensaje);
                             break;
                         case 3:
                             System.out.println("Mensaje eliminado");

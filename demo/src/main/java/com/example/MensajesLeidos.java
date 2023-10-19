@@ -46,11 +46,24 @@ public class MensajesLeidos {
 
     }
 
+    public void guardarMensaje(Mensaje m){
+        // Guardamos el mensaje en la cola
+        mensajesLeidos.enqueue(m);
+    }
+
     public void mostrarMensajesLeidos(){
         // Consultar mensajes leidos
-        while (!mensajesLeidos.isEmpty()) {
-            Object mensaje = mensajesLeidos.dequeue(); // Obtener el mensaje más antiguo
-            System.out.println("Mensaje: " + mensaje);
+    
+        switch (mensajesLeidos.getSize()) {
+            case 0:
+                System.out.println("No hay mensajes leidos");
+                break;
+            default:
+                System.out.println("Mensaje leido mas antiguo");
+                System.out.println("-----------------------------------------------------------");
+                Mensaje m = (Mensaje) mensajesLeidos.dequeue();
+                m.mostrarMensaje();
+                break;
         }
     }
 
@@ -69,7 +82,7 @@ public class MensajesLeidos {
 
                 // En la cola de mensajes, iteramos y escribimos en el archivo
                 while (!mensajesLeidos.isEmpty()) {
-                    writer.write(mensajesLeidos.dequeue().toString() + "\n");
+                    writer.write(mensajesLeidos.dequeue().toString() + "\r\n");
                 }
 
 

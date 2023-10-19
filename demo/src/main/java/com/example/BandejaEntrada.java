@@ -50,7 +50,8 @@ public class BandejaEntrada {
 
     // Metodo para mostrar los mensajes de la bandeja de entrada
     public void mostrarBandeja(){
-        System.out.println("Mensajes de la bandeja de entrada:");
+        System.out.println("Mensajes de la bandeja de entrada:" + "\n");
+        System.out.println("-----------------------------------------------------------");
         switch (mensajes.getSize()) {
             case 0:
                 System.out.println("No hay mensajes en la bandeja de entrada");
@@ -59,7 +60,7 @@ public class BandejaEntrada {
                 DoubleNode current = mensajes.First();
                 int i = 1;
                 while (current != null) {
-                System.out.println(Integer.toString(i) + "\n");
+                System.out.println(Integer.toString(i));
                 ((Mensaje) current.getData()).resumenMensaje();
                 current = current.getNext();
                 i++;
@@ -69,24 +70,23 @@ public class BandejaEntrada {
     }
 
     // Metodo leer un mensaje de la bandeja de entrada, por el titulo del mismo
-    public void leerMensaje(int n){
+    public Mensaje leerMensaje(int n){
         int i = 1;
         DoubleNode current = mensajes.First();
         while (i < n) {
             current = current.getNext();
         }
-        ((Mensaje) current.getData()).mostrarMensaje();
+        return ((Mensaje) current.getData());
     }
 
-    // FALTAN LOS METODOS PARA PASAR UN MENSAJE DE LA BA A LEIDOS Y A BORRADORES
-    // HAY QUE SOLUCIONAR COMO SE ENVIAN MENSAJES A OTROS USUARIOS
-
-    public void toMsgLeido(){
-
-    }
-
-    public void toBorrador(){
-
+    // Metodo para eliminar un mensaje de la bandeja de entrada
+    public void eliminarMensaje(int n){
+        int i = 1;
+        DoubleNode current = mensajes.First();
+        while (i < n) {
+            current = current.getNext();
+        }
+        mensajes.remove(current);
     }
 
     // Metodo para guardar los mensajes de la bandeja de entrada en la base de datos
@@ -116,7 +116,7 @@ public class BandejaEntrada {
             // En la lista de mensajes, iteramos y escribimos en el archivo
             DoubleNode current = mensajes.First();
             while (current != null) {
-                writer.write(current.getData().toString() + "\n");
+                writer.write(current.getData().toString() + "\r\n");
                 current = current.getNext();
             }
 
