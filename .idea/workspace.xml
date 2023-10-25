@@ -4,14 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="aa47d63b-8902-45ef-878b-6dcb15f9e938" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/src/main/java/com/example/Datos/InfoUsuarios/Empleados.txt" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/com/example/Datos/InfoUsuarios/Empleados.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/src/main/java/com/example/Datos/InfoUsuarios/Password.txt" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/com/example/Datos/InfoUsuarios/Password.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/src/main/java/com/example/Direccion.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/com/example/Direccion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/src/main/java/com/example/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/com/example/Menu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/src/main/java/com/example/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/com/example/Usuario.java" afterDir="false" />
-    </list>
+    <list default="true" id="aa47d63b-8902-45ef-878b-6dcb15f9e938" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -92,6 +85,7 @@
       <workItem from="1695423874608" duration="2451000" />
       <workItem from="1696428455379" duration="2859000" />
       <workItem from="1697472837429" duration="4606000" />
+      <workItem from="1697670554975" duration="4948000" />
     </task>
     <servers />
   </component>
