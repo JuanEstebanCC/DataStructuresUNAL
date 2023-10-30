@@ -1,4 +1,5 @@
 package Tree;
+import Queue.Queue;
 
 public class BinaryTree {
     //Atributos de la clase
@@ -42,7 +43,8 @@ public class BinaryTree {
 
     public BinaryNode getRoot() {
         return root;
-    }	
+    }
+
 
     //Retorno de hijos de un nodo
     public BinaryNode left(BinaryNode node) {
@@ -51,6 +53,30 @@ public class BinaryTree {
 
     public BinaryNode right(BinaryNode node) {
         return node.getRight();
+    }
+
+    //Retorno del padre de un nodo
+    public BinaryNode parent(BinaryNode node) {
+        if (isRoot(node)) {
+            return null;
+        } else {
+            Queue queue = new Queue();
+            queue.enqueue(root);
+            BinaryNode temp = root;
+
+            while (!queue.isEmpty() && left((BinaryNode) queue.first())!= node && right((BinaryNode) queue.first()) != node) {
+                temp = (BinaryNode) queue.dequeue();
+                if (hasLeft(temp)) {
+                    queue.enqueue(left(temp));
+                }
+                if (hasRight(temp)) {
+                    queue.enqueue(right(temp));
+                }
+            return temp;
+            }
+
+        }
+        return node;	
     }
 
     
