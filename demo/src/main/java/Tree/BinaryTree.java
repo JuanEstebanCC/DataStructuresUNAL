@@ -79,5 +79,29 @@ public class BinaryTree {
         return node;	
     }
 
+    //Retorno de la profundidad de un nodo
+    public int depth(BinaryNode node) {
+        if (isRoot(node)) {
+            return 0;
+        } else {
+            return 1 + depth(parent(node));
+        }
+    }
+
+    //Retorno de la altura de un nodo
+    public int height(BinaryNode node) {
+        if (!isInternal(node)) {
+            return 0;
+        } else {
+            int h = 0;
+            if (hasLeft(node)) {
+                h = Math.max(h, height(left(node)));
+            }
+            if (hasRight(node)) {
+                h = Math.max(h, height(right(node)));
+            }
+            return 1 + h;
+        }
+    }
     
 }
