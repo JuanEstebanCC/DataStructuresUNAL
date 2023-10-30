@@ -41,7 +41,7 @@ public class BinaryNode {
         this.left = left;
     }
 
-    public void setright(BinaryNode right) {
+    public void setRight(BinaryNode right) {
         this.right = right;
     }
 }
