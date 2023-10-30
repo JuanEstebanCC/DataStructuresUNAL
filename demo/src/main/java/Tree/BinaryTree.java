@@ -103,5 +103,24 @@ public class BinaryTree {
             return 1 + h;
         }
     }
+
+    //Agregar una raíz
+    public void addRoot(Object element) {
+        root = new BinaryNode(element);
+        size = 1;
+    }
+
+    //Agregar hijos
+    public void addLeft(BinaryNode node, Object element) {
+        BinaryNode newNode = new BinaryNode(element);
+        node.setLeft(newNode);
+        size++;
+    }
+
+    public void addRight(BinaryNode node, Object element) {
+        BinaryNode newNode = new BinaryNode(element);
+        node.setRight(newNode);
+        size++;
+    }
     
 }
