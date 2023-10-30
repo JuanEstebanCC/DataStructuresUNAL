@@ -122,5 +122,40 @@ public class BinaryTree {
         node.setRight(newNode);
         size++;
     }
+
+    //Remover un nodo
+    public BinaryNode remove(BinaryNode node){
+        BinaryNode parent = parent(node);
+        if (hasLeft(node) && hasRight(node)) {
+            if (parent.getLeft() == node) {
+                parent.setLeft(null);
+            } else {
+                parent.setRight(null);
+            }
+            return node;
+        } else if (hasLeft(node) || hasRight(node)){
+            if (hasLeft(node)) {
+                if (parent.getLeft() == node) {
+                    parent.setLeft(left(node));
+                } else {
+                    parent.setRight(left(node));
+                }
+            } else if (hasRight(node)){
+                if (parent.getLeft() == node) {
+                    parent.setLeft(right(node));
+                } else {
+                    parent.setRight(right(node));
+                }
+            }
+            return node;
+        } else {
+            if (parent.getLeft() == node) {
+                parent.setLeft(null);
+            } else {
+                parent.setRight(null);
+            }
+            return node;
+        }
+    }
     
 }
