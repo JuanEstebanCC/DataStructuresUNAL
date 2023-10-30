@@ -157,5 +157,41 @@ public class BinaryTree {
             return node;
         }
     }
+
+    //Recorridos de los árboles
+    public void preOrder(BinaryNode node) {
+        if (node != null) {
+            System.out.println(node.getData());
+            if (hasLeft(node)) {
+                preOrder(left(node));
+            }
+            if (hasRight(node)) {
+                preOrder(right(node));
+            }
+        }
+    }
+
+    public void inOrder(BinaryNode node) {
+        if (node != null) {
+            if (hasLeft(node)) {
+                inOrder(left(node));
+            }
+            System.out.println(node.getData());
+            if (hasRight(node)) {
+                inOrder(right(node));
+            }
+        }
+    }
     
+    public void postOrder(BinaryNode node) {
+        if (node != null) {
+            if (hasLeft(node)) {
+                postOrder(left(node));
+            }
+            if (hasRight(node)) {
+                postOrder(right(node));
+            }
+            System.out.println(node.getData());
+        }
+    }
 }
