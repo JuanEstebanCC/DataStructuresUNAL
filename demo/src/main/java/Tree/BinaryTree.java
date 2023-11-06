@@ -3,7 +3,7 @@ import Queue.Queue;
 
 public class BinaryTree {
     //Atributos de la clase
-    private BinaryNode root; //Raíz del árbol
+    public BinaryNode root; //Raíz del árbol
     private int size; //Tamaño del árbol
 
     //Constructores
