@@ -53,7 +53,7 @@ public class BinarySearchTree extends BinaryTree {
 
     public Object Remove(int k) {
         BinaryNode v = find(k);
-        Object temp = v.getData()
+        Object temp = v.getData();
         if (v.hasLeft() && v.hasRight()) { //caso 2
             BinaryNode w = predecessor(v);
             v.setData(w.getData());
