@@ -37,13 +37,13 @@ public class BinarySearchTree extends BinaryTree {
         BSTEntry temp = (BSTEntry) v.getData();
         BinaryNode nD = new BinaryNode(o);
         if (o.getKey() < temp.getKey()) {
-            if (v.hasLeft()) {
+            if (hasLeft(v)) {
                 addEntry(v.getLeft(), o);
             } else {
                 v.setLeft(nD);
             }
         } else {
-            if (v.hasRight()) {
+            if (hasRight(v)) {
                 addEntry(v.getRight(), o);
             } else {
                 v.setRight(nD);
@@ -54,7 +54,7 @@ public class BinarySearchTree extends BinaryTree {
     public Object Remove(int k) {
         BinaryNode v = find(k);
         Object temp = v.getData();
-        if (v.hasLeft() && v.hasRight()) { //caso 2
+        if (hasLeft(v) && hasRight(v)) { //caso 2
             BinaryNode w = predecessor(v);
             v.setData(w.getData());
             super.remove(w);
