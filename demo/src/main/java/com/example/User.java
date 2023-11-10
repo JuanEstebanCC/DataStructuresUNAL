@@ -37,4 +37,16 @@ public class User {
     public void setID(int ID) {
         this.ID = ID;
     }
+
+    //Metodo para sumar los digitos de la ID
+
+    public int SumaDigitos() {
+        int suma = 0;
+        int aux = this.ID;
+        while (aux > 0) {
+            suma += aux % 10;
+            aux /= 10;
+        }
+        return suma;
+    }
 }
