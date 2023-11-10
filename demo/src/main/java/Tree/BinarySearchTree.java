@@ -75,8 +75,19 @@ public class BinarySearchTree extends BinaryTree {
         } else {
             return temp;
         }
+    }
 
+    public BinaryNode successor(BinaryNode v) {
+        BinaryNode temp = v.getRight();
+        return minNode(temp);
+    }
 
+    public BinaryNode minNode(BinaryNode temp) {
+        if (hasLeft(temp)) {
+            return minNode(temp.getLeft());
+        } else {
+            return temp;
+        }
     }
 
 }
