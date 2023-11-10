@@ -90,4 +90,12 @@ public class BinarySearchTree extends BinaryTree {
         }
     }
 
+    public void inOrder(BSTEntry node) {
+        if (node != null) {
+            inOrder(node.getLeft());
+            BSTEntry temp = (BSTEntry) node.getData();
+            System.out.print(Integer.toString(temp.getKey()) + " ");
+            inOrder(node.getRight());
+        }
+    }
 }
