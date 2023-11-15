@@ -1,14 +1,14 @@
 package com.example;
 
-import Tree.BinaryNode;
 import Tree.BinarySearchTree;
 
 import java.util.Scanner;
 
 public class TreeMenu {
-  public TreeMenu(){
+  public void TreeMenu(){
       Scanner sc = new Scanner(System.in);
       int opcion = 0;
+      BinarySearchTree bst = new BinarySearchTree();
       do {
           System.out.println("----------------------");
           System.out.println("Bienvenido al sistema:");
@@ -25,14 +25,39 @@ public class TreeMenu {
           sc.nextLine();
           switch (opcion) {
               case 1:
-                  insertar();
+                  System.out.println("Inserte el objeto: ");
+                  String obj = sc.nextLine();
+                  System.out.println("Inserte la key: ");
+                  int key = sc.nextInt();
+                  bst.insert(obj,key);
                   break;
               case 2:
-                  eliminar();
+                  System.out.println("Inserte la key del nodo que desea eliminar: ");
+                  key = sc.nextInt();
+                  bst.Remove(key);
                   break;
               case 3:
-                  buscar();
+                  System.out.println("Inserte la key del nodo que desea buscar: ");
+                  key = sc.nextInt();
+                  bst.find(key);
                   break;
+              case 4:
+                  System.out.println("El objeto con key más grande es:");
+                  bst.getMaxKeyObject();
+                  System.out.println("El objeto con key más pequeña es:");
+                  bst.getMinKeyObject();
+                  break;
+              case 5:
+                  System.out.println(" show arbol");
+              case 6:
+                  System.out.println("Resultado del inorder");
+                  if (bst.isEmpty()) {
+                      System.out.println("Tree is empty.");
+                  } else {
+                      System.out.print("Inorder Traversal Keys: ");
+                      bst.inOrder(bst.root);
+                      System.out.println();
+                  }
               case 7:
                   System.out.println("Gracias por usar el sistema!");
                   break;
@@ -44,41 +69,6 @@ public class TreeMenu {
       sc.close();
   }
 
-  public void insertar(){
-      Scanner sc = new Scanner(System.in);
-      System.out.println("Inserte el objeto: ");
-      String obj = sc.nextLine();
-      System.out.println("Inserte la key: ");
-      int key = sc.nextInt();
-      BinarySearchTree.insert(obj,key);
-  }
-
-  public void eliminar(){
-      Scanner sc = new Scanner(System.in);
-      System.out.println("Inserte la key del nodo que desea eliminar: ");
-      String key = sc.nextLine();
-      BinarySearchTree.Remove(key);
-  }
 
 
-  public void buscar(){
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Inserte la key del nodo que desea buscar: ");
-        String key = sc.nextLine();
-        BinarySearchTree.find(key);
-  }
-
-  public void maxAndMin(){
-        System.out.println("El objeto con key más grande es:");
-        BinarySearchTree.maxNode();
-        System.out.println("El objeto con key más pequeña es:");
-        BinarySearchTree.minNode();
-  }
-  public void mostarArbol(){
-
-  }
-  public void recorridoInoder(){
-      System.out.println("Resultado del inorder");
-      BinarySearchTree.inOrder();
-  }
 }

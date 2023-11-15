@@ -5,37 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="aa47d63b-8902-45ef-878b-6dcb15f9e938" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo/src/main/java/com/example/TreeMenu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/target/classes/DoubleList/DoubleList.class" beforeDir="false" afterPath="$PROJECT_DIR$/demo/target/classes/DoubleList/DoubleList.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/target/classes/DoubleList/DoubleNode.class" beforeDir="false" afterPath="$PROJECT_DIR$/demo/target/classes/DoubleList/DoubleNode.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/target/classes/Queue/ArrayQueue.class" beforeDir="false" afterPath="$PROJECT_DIR$/demo/target/classes/Queue/ArrayQueue.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/target/classes/Queue/Queue.class" beforeDir="false" afterPath="$PROJECT_DIR$/demo/target/classes/Queue/Queue.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/target/classes/SimpleList/List.class" beforeDir="false" afterPath="$PROJECT_DIR$/demo/target/classes/SimpleList/List.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/target/classes/SimpleList/Node.class" beforeDir="false" afterPath="$PROJECT_DIR$/demo/target/classes/SimpleList/Node.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/target/classes/Stack/Stack.class" beforeDir="false" afterPath="$PROJECT_DIR$/demo/target/classes/Stack/Stack.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/target/classes/Stack/StackArray.class" beforeDir="false" afterPath="$PROJECT_DIR$/demo/target/classes/Stack/StackArray.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/target/classes/Tree/BSTEntry.class" beforeDir="false" afterPath="$PROJECT_DIR$/demo/target/classes/Tree/BSTEntry.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/target/classes/Tree/BinaryNode.class" beforeDir="false" afterPath="$PROJECT_DIR$/demo/target/classes/Tree/BinaryNode.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/main/java/Tree/BinarySearchTree.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/Tree/BinarySearchTree.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/main/java/com/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/com/example/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/main/java/com/example/TreeMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/com/example/TreeMenu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/demo/target/classes/Tree/BinarySearchTree.class" beforeDir="false" afterPath="$PROJECT_DIR$/demo/target/classes/Tree/BinarySearchTree.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/target/classes/Tree/BinaryTree.class" beforeDir="false" afterPath="$PROJECT_DIR$/demo/target/classes/Tree/BinaryTree.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/target/classes/com/example/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/target/classes/com/example/Clases varias/BandejaEntrada.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/target/classes/com/example/Clases varias/Borradores.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/target/classes/com/example/Clases varias/Credenciales.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/target/classes/com/example/Clases varias/Direccion.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/target/classes/com/example/Clases varias/Fecha.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/target/classes/com/example/Clases varias/Mensaje.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/target/classes/com/example/Clases varias/MensajesLeidos.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/target/classes/com/example/Clases varias/Menu.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/target/classes/com/example/Clases varias/Registro.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/target/classes/com/example/Clases varias/RegistroCredenciales.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/target/classes/com/example/Clases varias/Usuario.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/target/classes/com/example/Datos/InfoUsuarios/Empleados.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/target/classes/com/example/Datos/InfoUsuarios/Password.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/demo/target/classes/com/example/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/demo/target/classes/com/example/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/target/classes/com/example/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/demo/target/classes/com/example/User.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,27 +41,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "lists-implementation",
-    "ignore.virus.scanning.warn.message": "true",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;lists-implementation&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
-      "JAVA"
+  &quot;keyToStringList&quot;: {
+    &quot;com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File&quot;: [
+      &quot;JAVA&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.example.Main" />
@@ -120,7 +95,8 @@
       <workItem from="1697472837429" duration="4606000" />
       <workItem from="1697670554975" duration="4948000" />
       <workItem from="1699283709405" duration="5766000" />
-      <workItem from="1699897097405" duration="3760000" />
+      <workItem from="1699897097405" duration="4577000" />
+      <workItem from="1700055315550" duration="2659000" />
     </task>
     <servers />
   </component>

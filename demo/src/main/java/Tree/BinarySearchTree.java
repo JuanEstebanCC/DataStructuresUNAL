@@ -90,6 +90,27 @@ public class BinarySearchTree extends BinaryTree {
         }
     }
 
+    public Object getMinKeyObject() {
+        if (isEmpty()) {
+            return null; // Return null if the tree is empty
+        }
+
+        BinaryNode minNode = minNode(root);
+        BSTEntry minEntry = (BSTEntry) minNode.getData();
+        return minEntry.getData();
+    }
+
+
+    public Object getMaxKeyObject() {
+        if (isEmpty()) {
+            return null; // Return null if the tree is empty
+        }
+
+        BinaryNode maxNode = maxNode(root);
+        BSTEntry maxEntry = (BSTEntry) maxNode.getData();
+        return maxEntry;
+    }
+
     public void inOrder(BSTEntry node) {
         if (node != null) {
             inOrder(node.getLeft());
