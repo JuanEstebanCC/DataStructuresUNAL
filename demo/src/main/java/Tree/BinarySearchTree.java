@@ -108,7 +108,7 @@ public class BinarySearchTree extends BinaryTree {
 
         BinaryNode maxNode = maxNode(root);
         BSTEntry maxEntry = (BSTEntry) maxNode.getData();
-        return maxEntry;
+        return maxEntry.getData();
     }
 
     public void inOrder(BSTEntry node) {

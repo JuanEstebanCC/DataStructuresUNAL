@@ -1,5 +1,6 @@
 package com.example;
 
+import Tree.BinaryNode;
 import Tree.BinarySearchTree;
 
 import java.util.Scanner;
@@ -29,35 +30,46 @@ public class TreeMenu {
                   String obj = sc.nextLine();
                   System.out.println("Inserte la key: ");
                   int key = sc.nextInt();
-                  bst.insert(obj,key);
+                  bst.insert(obj, key);
                   break;
               case 2:
                   System.out.println("Inserte la key del nodo que desea eliminar: ");
                   key = sc.nextInt();
-                  bst.Remove(key);
+                  Object removedObject = bst.Remove(key);
+                  if (removedObject != null) {
+                      System.out.println("Objeto eliminado: " + removedObject);
+                  } else {
+                      System.out.println("No se encontró el nodo con la key especificada.");
+                  }
                   break;
               case 3:
                   System.out.println("Inserte la key del nodo que desea buscar: ");
                   key = sc.nextInt();
-                  bst.find(key);
+                  BinaryNode foundNode = bst.find(key);
+                  if (foundNode != null) {
+                      System.out.println("Nodo encontrado: " + foundNode.getData());
+                  } else {
+                      System.out.println("Key not found.");
+                  }
                   break;
               case 4:
-                  System.out.println("El objeto con key más grande es:");
-                  bst.getMaxKeyObject();
-                  System.out.println("El objeto con key más pequeña es:");
-                  bst.getMinKeyObject();
+                  System.out.println("El objeto con key más grande es: " + bst.getMaxKeyObject());
+                  System.out.println("El objeto con key más pequeña es: " + bst.getMinKeyObject());
                   break;
               case 5:
-                  System.out.println(" show arbol");
+                  System.out.println("Mostrar árbol");
+                  break;
               case 6:
                   System.out.println("Resultado del inorder");
                   if (bst.isEmpty()) {
                       System.out.println("Tree is empty.");
                   } else {
-                      System.out.print("Inorder Traversal Keys: ");
-                      bst.inOrder(bst.root);
+
+                      System.out.println("Inorder Keys: ");
+                      bst.inOrder(bst.getRoot());  // Pass bst.root as an argument
                       System.out.println();
                   }
+                  break;
               case 7:
                   System.out.println("Gracias por usar el sistema!");
                   break;

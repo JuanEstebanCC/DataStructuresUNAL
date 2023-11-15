@@ -46,4 +46,8 @@ public class BSTEntry {
         this.right = right;
     }
 
+    @Override
+    public String toString() {
+        return "{ Key= " + k + " , Data= " + data +" } ";
+    }
 }
