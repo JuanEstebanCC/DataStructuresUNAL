@@ -157,5 +157,20 @@ public class BinarySearchTree extends BinaryTree {
             inOrder(node.getRight());
         }
     }
+    public void inOrderShow(BinaryNode node, int level) {
+        if (node != null) {
+            inOrderShow(node.getRight(), level + 1);
+            printTree(node, level);
+            inOrderShow(node.getLeft(), level + 1);
+        }
+    }
+
+    public void printTree(BinaryNode node, int level) {
+        for (int i = 0; i < level; i++) {
+            System.out.print("   ");
+        }
+        System.out.println(node.getData());
+
+    }
     
 }

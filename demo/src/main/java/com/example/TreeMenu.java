@@ -65,6 +65,7 @@ public class TreeMenu {
                   break;
               case 5:
                   System.out.println("Mostrar árbol");
+                  bst.inOrderShow(bst.getRoot(), 0);
                   break;
               case 6:
                   System.out.println("Resultado del inorder");
@@ -87,6 +88,4 @@ public class TreeMenu {
       sc.close();
   }
 
-
-
-}
+  }
