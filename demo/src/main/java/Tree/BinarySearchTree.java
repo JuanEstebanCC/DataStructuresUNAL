@@ -12,6 +12,9 @@ public class BinarySearchTree extends BinaryTree {
     }
 
     public BinaryNode searchTree(int k, BinaryNode v) {
+        if (v == null) {
+            return null;
+        }
         BSTEntry u = (BSTEntry) v.getData();
         if (k == u.getKey()) { //Caso base
             return v;
@@ -51,7 +54,42 @@ public class BinarySearchTree extends BinaryTree {
         }
     }
 
-    public Object Remove(int k) {
+    public BSTEntry deleteNode(int k) {
+        return deleteRecursive((BSTEntry) root.getData(), k);
+    }
+
+    public BSTEntry deleteRecursive(BSTEntry v, int k) {
+        if (v == null) {
+            return null;
+        }
+        BSTEntry temp = v;
+        //Realizamos la busqueda del nodo a eliminar
+        if (k < temp.getKey()) {
+            v.setLeft(deleteRecursive(v.getLeft(), k));
+        } else if (k > temp.getKey()) {
+            v.setRight(deleteRecursive(v.getRight(), k));
+        } else {
+            if (v.getLeft() == null) {
+                return (BSTEntry) v.getRight().getData();
+            } else if (v.getRight() == null) {
+                return (BSTEntry) v.getLeft().getData();
+            }
+            v.setData(minValue(v.getRight()));
+            v.setRight(deleteRecursive(v.getRight(), temp.getKey()));
+        }
+        return temp;
+    }
+
+    private int minValue(BSTEntry root) {
+        int minValue = root.getLeft().getKey();
+        while (root.getLeft() != null) {
+            minValue = root.getLeft().getKey();
+            root = root.getLeft();
+        }
+        return minValue;
+    }
+
+    /*public Object Remove(int k) {
         BinaryNode v = find(k);
         Object temp = v.getData();
         if (hasLeft(v) && hasRight(v)) { //caso 2
@@ -62,7 +100,7 @@ public class BinarySearchTree extends BinaryTree {
             super.remove(v);
         }
         return temp;
-    }
+    }*/
 
     public BinaryNode predecessor(BinaryNode v) {
         BinaryNode temp = v.getLeft();
@@ -119,4 +157,5 @@ public class BinarySearchTree extends BinaryTree {
             inOrder(node.getRight());
         }
     }
+    
 }

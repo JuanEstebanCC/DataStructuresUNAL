@@ -49,4 +49,9 @@ public class User {
         }
         return suma;
     }
+
+    //Metodo toString
+    public String toString() {
+        return "Nombre: " + this.Nombre + " | ID: " + this.ID + "|- KEY -" + this.SumaDigitos() + "\n";
+    }
 }
